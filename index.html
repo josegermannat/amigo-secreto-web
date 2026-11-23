@@ -89,7 +89,7 @@
         <div id="loginStatusBanner" class="glass-card rounded-3xl p-4 border-l-4 border-l-rose-500">
           <div class="flex items-center justify-between">
             <span class="text-xs font-bold uppercase tracking-wider text-rose-600">Estado del sorteo</span>
-            <span id="loginProgressBadge" class="text-xs font-extrabold px-2.5 py-0.5 rounded-full bg-rose-100 text-rose-700">0 / 28 listos</span>
+            <span id="loginProgressBadge" class="text-xs font-extrabold px-2.5 py-0.5 rounded-full bg-rose-100 text-rose-700">0 / 29 listos</span>
           </div>
           <p id="loginStatusHeadline" class="text-sm font-bold text-slate-800 mt-1.5">Cargando estado...</p>
           <div class="w-full bg-slate-100 h-2 rounded-full mt-2.5 overflow-hidden">
@@ -352,7 +352,7 @@
           </div>
           <div class="glass-card rounded-2xl p-4 border-b-4 border-b-amber-500">
             <p class="text-[11px] font-bold uppercase tracking-wider text-slate-500">Pendientes</p>
-            <p id="adminPendingCount" class="text-2xl font-extrabold text-amber-600 mt-1">28</p>
+            <p id="adminPendingCount" class="text-2xl font-extrabold text-amber-600 mt-1">29</p>
             <p class="text-[11px] text-slate-400">Aún con clave 123</p>
           </div>
         </div>
@@ -400,15 +400,15 @@
       realtime: { params: { eventsPerSecond: 10 } }
     });
 
-  const PARTICIPANTS = [
-  "Luis", "Amelia", "Rebeca", "Aldemaro", "Jose Fernando", "Mafer", "Eva",
-  "Naha", "Renzo", "Ailiyn", "Axel", "Sra Yilia", "Shirley", "Federico",
-  "Santiago", "Katiuska", "Jose Gregorio", "Karilu", "Jose German", "Caroina",
-  "David", "Gabriel", "Antonela", "Janeth", "Anibal", "Ignacio", "Zoe", "Emilio",
-  "Romina"
-];
+    const PARTICIPANTS = [
+      "Luis", "Amelia", "Rebeca", "Aldemaro", "Jose Fernando", "Mafer", "Eva",
+      "Naha", "Renzo", "Ailiyn", "Axel", "Sra Yilia", "Shirley", "Federico",
+      "Santiago", "Katiuska", "Jose Gregorio", "Karilu", "Jose German", "Caroina",
+      "David", "Gabriel", "Antonela", "Janeth", "Anibal", "Ignacio", "Zoe", "Emilio",
+      "Romina"
+    ];
 
-    const ADMIN_USER = "Jose";
+    const ADMIN_USER = "José";
     const ADMIN_PASS = "15185";
 
     let participantsMap = {};
@@ -532,7 +532,7 @@
       }
 
       document.getElementById("syncDot").className = "w-2 h-2 rounded-full bg-emerald-500 inline-block";
-      document.getElementById("syncText").textContent = "En vivo · 28 participantes";
+      document.getElementById("syncText").textContent = "En vivo · 29 participantes";
 
       if (!initializedData) {
         initializedData = true;
@@ -591,14 +591,15 @@
     }
 
     function renderAll() {
+      const totalCount = PARTICIPANTS.length;
       const allIds = PARTICIPANTS.map(toDocId);
       const readyList = allIds.filter(id => participantsMap[id]?.cambio_clave);
       const pendingList = allIds.filter(id => !participantsMap[id]?.cambio_clave);
       const readyCount = readyList.length;
       const pendingCount = pendingList.length;
 
-      document.getElementById("loginProgressBadge").textContent = `${readyCount} / 28 listos`;
-      document.getElementById("loginProgressBar").style.width = `${Math.round((readyCount / 28) * 100)}%`;
+      document.getElementById("loginProgressBadge").textContent = `${readyCount} / ${totalCount} listos`;
+      document.getElementById("loginProgressBar").style.width = `${Math.round((readyCount / totalCount) * 100)}%`;
 
       if (drawState.completado) {
         document.getElementById("loginStatusHeadline").textContent = "¡Sorteo realizado! Ingresa para ver quién te tocó.";
@@ -640,7 +641,7 @@
           waitingBox.classList.remove("hidden");
           completedBox.classList.add("hidden");
 
-          document.getElementById("dashReadyCounter").textContent = `${readyCount} / 28 listos`;
+          document.getElementById("dashReadyCounter").textContent = `${readyCount} / ${totalCount} listos`;
           document.getElementById("dashMissingHeadline").textContent =
             pendingCount === 1
               ? "Falta 1 persona para cambiar la clave"
@@ -929,7 +930,7 @@
 
     // Botón Resetear sorteo (Admin)
     document.getElementById("btnResetDraw").addEventListener("click", async () => {
-      const ok = confirm("¿Seguro que deseas resetear el sorteo? Si los 28 participantes ya están listos, se volverá a sortear automáticamente de inmediato.");
+      const ok = confirm("¿Seguro que deseas resetear el sorteo? Si los 29 participantes ya están listos, se volverá a sortear automáticamente de inmediato.");
       if (!ok) return;
 
       const btn = document.getElementById("btnResetDraw");
