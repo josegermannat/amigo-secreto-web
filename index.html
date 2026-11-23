@@ -2,413 +2,390 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Amigo Secreto - Intercambio Navideño</title>
-  <!-- Tailwind CSS -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Amigo Secreto · Intercambio 2026</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Google Fonts: Plus Jakarta Sans & Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
-  <!-- Lucide Icons -->
-  <script src="https://unpkg.com/lucide@latest"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['Inter', 'sans-serif'],
-            display: ['Plus Jakarta Sans', 'sans-serif'],
-          },
-          colors: {
-            festive: {
-              red: '#DC2626',
-              darkRed: '#991B1B',
-              green: '#15803D',
-              darkGreen: '#14532D',
-              gold: '#D97706',
-              cream: '#FFFBEB',
-            }
-          }
-        }
-      }
-    }
-  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     body {
-      background: radial-gradient(circle at top, #fef2f2 0%, #f8fafc 45%, #f1f5f9 100%);
-      min-height: 100vh;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: radial-gradient(circle at top, #fff1f2 0%, #f8fafc 55%, #f1f5f9 100%);
+      min-height: 100dvh;
+      -webkit-tap-highlight-color: transparent;
     }
-    /* Animación sutil para revelar el amigo secreto */
-    @keyframes popIn {
-      0% { transform: scale(0.95); opacity: 0; }
-      100% { transform: scale(1); opacity: 1; }
+    .glass-card {
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      box-shadow: 0 12px 32px -8px rgba(15, 23, 42, 0.08);
     }
-    .animate-pop {
-      animation: popIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    .festive-gradient {
+      background: linear-gradient(135deg, #e11d48 0%, #be123c 50%, #9f1239 100%);
     }
-    /* Custom scrollbar suave */
-    ::-webkit-scrollbar {
-      width: 5px;
+    .emerald-gradient {
+      background: linear-gradient(135deg, #059669 0%, #047857 100%);
     }
-    ::-webkit-scrollbar-track {
-      background: transparent;
+    @keyframes floatSlow {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-4px); }
     }
-    ::-webkit-scrollbar-thumb {
-      background: #cbd5e1;
-      border-radius: 9999px;
+    .animate-float {
+      animation: floatSlow 3s ease-in-out infinite;
     }
   </style>
 </head>
-<body class="text-slate-800 antialiased selection:bg-red-100 selection:text-red-800 flex justify-center">
+<body class="text-slate-800 antialiased flex justify-center">
 
-  <!-- Contenedor principal estilo App Móvil -->
-  <div id="app-shell" class="w-full max-w-md min-h-screen bg-white/95 backdrop-blur-md shadow-2xl shadow-slate-300/60 border-x border-slate-100 flex flex-col relative overflow-x-hidden">
+  <div class="w-full max-w-[440px] min-h-dvh flex flex-col justify-between px-4 py-5 relative">
 
-    <!-- Cabecera Festiva -->
-    <header class="bg-gradient-to-br from-red-600 via-red-700 to-rose-800 text-white px-5 pt-6 pb-7 rounded-b-[2rem] shadow-lg relative overflow-hidden shrink-0">
-      <!-- Decoración geométrica SVG festiva sin fotos externas -->
-      <svg class="absolute -right-6 -top-6 w-32 h-32 text-white/10 pointer-events-none" viewBox="0 0 100 100" fill="currentColor">
-        <circle cx="50" cy="50" r="45" />
-      </svg>
-      <svg class="absolute -left-8 -bottom-10 w-36 h-36 text-amber-300/10 pointer-events-none" viewBox="0 0 100 100" fill="currentColor">
-        <polygon points="50,5 63,38 98,38 70,59 80,93 50,72 20,93 30,59 2,38 37,38" />
-      </svg>
-
-      <div class="relative z-10 flex items-center justify-between">
-        <div class="flex items-center gap-3">
-          <div class="w-11 h-11 rounded-2xl bg-white/15 backdrop-blur-sm border border-white/25 flex items-center justify-center shadow-inner">
-            <i data-lucide="gift" class="w-6 h-6 text-amber-300"></i>
-          </div>
-          <div>
-            <span class="text-[11px] font-semibold uppercase tracking-wider text-red-100 block">Intercambio Oficial</span>
-            <h1 class="font-display text-xl font-extrabold tracking-tight leading-tight">Amigo Secreto</h1>
-          </div>
+    <!-- Header superior -->
+    <header class="flex items-center justify-between mb-4">
+      <div class="flex items-center gap-2.5">
+        <div class="w-10 h-10 rounded-2xl festive-gradient flex items-center justify-center text-white shadow-md shadow-rose-200">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21 11.25v8.25a1.5 1.5 0 0 1-1.5 1.5H5.25a1.5 1.5 0 0 1-1.5-1.5v-8.25M12 4.875A2.625 2.625 0 1 0 9.375 7.5H12m0-2.625V7.5m0-2.625A2.625 2.625 0 1 1 14.625 7.5H12m0 0V21m-8.625-9.75h18c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125h-18c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z" />
+          </svg>
         </div>
-
-        <!-- Botón de acción superior (Admin o Cerrar Sesión) -->
-        <div id="header-actions" class="flex items-center gap-2">
-          <button id="btn-open-admin" type="button" class="px-3 py-2 rounded-xl bg-white/15 hover:bg-white/25 active:scale-95 transition text-xs font-semibold flex items-center gap-1.5 border border-white/20 shadow-sm">
-            <i data-lucide="shield-check" class="w-4 h-4 text-amber-300"></i>
-            <span>Admin</span>
-          </button>
+        <div>
+          <h1 class="text-lg font-extrabold tracking-tight text-slate-900 leading-none">Amigo Secreto</h1>
+          <p class="text-[11px] font-medium text-slate-500 mt-1 flex items-center gap-1.5">
+            <span id="syncDot" class="w-2 h-2 rounded-full bg-amber-400 inline-block"></span>
+            <span id="syncText">Conectando a Supabase...</span>
+          </p>
         </div>
       </div>
 
-      <!-- Barra de estado global sincronizada -->
-      <div id="global-status-pill" class="relative z-10 mt-4 bg-black/20 backdrop-blur-sm rounded-2xl px-3.5 py-2.5 flex items-center justify-between border border-white/10">
-        <div class="flex items-center gap-2">
-          <span id="status-dot" class="w-2.5 h-2.5 rounded-full bg-amber-400 animate-pulse"></span>
-          <span id="global-status-text" class="text-xs font-medium text-white/95">Conectando en tiempo real...</span>
-        </div>
-        <span id="global-progress-badge" class="text-xs font-bold bg-white/20 px-2.5 py-0.5 rounded-full text-amber-200">0/28</span>
-      </div>
+      <button id="btnOpenAdmin" type="button"
+        class="px-3 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 active:scale-95 text-white text-xs font-semibold flex items-center gap-1.5 shadow-sm transition">
+        <svg class="w-3.5 h-3.5 text-amber-400" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z" />
+        </svg>
+        Admin
+      </button>
     </header>
 
-    <!-- Contenedor de Vistas -->
-    <main class="flex-1 px-5 py-6 flex flex-col">
+    <!-- Notificación flotante -->
+    <div id="toast" class="fixed top-4 left-1/2 -translate-x-1/2 z-50 hidden max-w-[380px] w-[90%] px-4 py-3 rounded-2xl shadow-xl text-sm font-semibold text-white text-center transition-all"></div>
 
-      <!-- VISTA 0: CARGANDO / INICIALIZANDO -->
-      <section id="view-loading" class="flex-1 flex flex-col items-center justify-center text-center py-12">
-        <div class="w-14 h-14 rounded-2xl bg-red-50 text-red-600 flex items-center justify-center mb-4 shadow-sm border border-red-100">
-          <i data-lucide="sparkles" class="w-7 h-7 animate-spin"></i>
+    <!-- Contenido principal dinámico -->
+    <main id="appContainer" class="flex-1 flex flex-col gap-4">
+
+      <!-- VISTA 1: CARGANDO -->
+      <section id="viewLoading" class="glass-card rounded-3xl p-8 text-center my-auto">
+        <div class="w-12 h-12 rounded-2xl festive-gradient text-white mx-auto flex items-center justify-center animate-float mb-4 shadow-lg shadow-rose-200">
+          <svg class="w-6 h-6 animate-spin" fill="none" viewBox="0 0 24 24">
+            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"></path>
+          </svg>
         </div>
-        <h2 class="font-display text-lg font-bold text-slate-800">Sincronizando sala...</h2>
-        <p class="text-sm text-slate-500 mt-1 max-w-xs">Preparando la lista de los 28 participantes y verificando el estado del sorteo.</p>
+        <h2 class="text-base font-bold text-slate-900">Preparando el intercambio...</h2>
+        <p class="text-xs text-slate-500 mt-1">Sincronizando los 28 participantes en tiempo real</p>
       </section>
 
-      <!-- VISTA 1: LOGIN DE PARTICIPANTE -->
-      <section id="view-login" class="hidden animate-pop space-y-5">
-        <div class="bg-gradient-to-r from-amber-50 to-orange-50 border border-amber-200/80 rounded-2xl p-4 flex items-start gap-3">
-          <div class="p-2 bg-amber-100 text-amber-700 rounded-xl shrink-0 mt-0.5">
-            <i data-lucide="info" class="w-4 h-4"></i>
-          </div>
-          <div class="text-xs text-amber-900 leading-relaxed">
-            <p class="font-semibold mb-0.5">¿Cómo funciona?</p>
-            <p>Selecciona tu nombre e ingresa con la clave inicial <strong class="font-mono bg-amber-200/70 px-1.5 py-0.5 rounded">123</strong>. Luego crearás tu clave secreta y tus 3 pistas de regalo.</p>
-          </div>
-        </div>
-
-        <form id="form-login" class="bg-white rounded-3xl p-5 border border-slate-200/90 shadow-sm space-y-4">
-          <div>
-            <label for="select-participant" class="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-1.5">1. Selecciona tu nombre</label>
-            <div class="relative">
-              <select id="select-participant" required class="w-full appearance-none bg-slate-50 border border-slate-200 text-slate-800 font-semibold text-sm rounded-2xl px-4 py-3.5 pr-10 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500 transition">
-                <option value="" disabled selected>Elige tu nombre de la lista (28)...</option>
-              </select>
-              <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400 absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none"></i>
-            </div>
-          </div>
-
-          <div>
-            <label for="input-login-password" class="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-1.5">2. Tu clave secreta</label>
-            <div class="relative">
-              <input id="input-login-password" type="password" inputmode="text" autocomplete="current-password" placeholder="Usa 123 si es tu primera vez" required class="w-full bg-slate-50 border border-slate-200 text-slate-800 text-sm rounded-2xl px-4 py-3.5 pr-11 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500 transition" />
-              <button type="button" id="toggle-login-pwd" class="absolute right-3 top-1/2 -translate-y-1/2 p-1.5 text-slate-400 hover:text-slate-600" aria-label="Mostrar clave">
-                <i data-lucide="eye" class="w-4 h-4"></i>
-              </button>
-            </div>
-          </div>
-
-          <button type="submit" class="w-full bg-gradient-to-r from-red-600 to-rose-600 hover:from-red-700 hover:to-rose-700 active:scale-[0.99] text-white font-bold text-sm py-3.5 rounded-2xl shadow-md shadow-red-600/20 transition flex items-center justify-center gap-2">
-            <span>Entrar a mi panel</span>
-            <i data-lucide="arrow-right" class="w-4 h-4"></i>
-          </button>
-        </form>
-
-        <!-- Tarjeta pública del estado del sorteo en tiempo real -->
-        <div id="public-countdown-card" class="bg-slate-50 rounded-3xl p-5 border border-slate-200/80 space-y-3">
-          <!-- Se rellena dinámicamente -->
-        </div>
-      </section>
-
-      <!-- VISTA 2: CAMBIO OBLIGATORIO DE CLAVE (CUANDO CLAVE === '123') -->
-      <section id="view-force-password" class="hidden animate-pop space-y-5">
-        <div class="bg-red-50 border border-red-200 rounded-3xl p-5 text-center space-y-2">
-          <div class="w-12 h-12 rounded-2xl bg-red-600 text-white flex items-center justify-center mx-auto shadow-md shadow-red-600/20">
-            <i data-lucide="lock-keyhole" class="w-6 h-6"></i>
-          </div>
-          <h2 class="font-display text-lg font-extrabold text-slate-900">¡Hola, <span id="force-user-name" class="text-red-600"></span>!</h2>
-          <p class="text-xs text-slate-600 leading-relaxed">
-            Por seguridad, debes cambiar la clave inicial <strong>123</strong> por una clave personal secreta (distinta de 123) para quedar marcado como <strong>Listo</strong> en el sorteo.
-          </p>
-        </div>
-
-        <form id="form-force-password" class="bg-white rounded-3xl p-5 border border-slate-200 shadow-sm space-y-4">
-          <div>
-            <label for="input-new-password" class="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-1.5">Nueva clave secreta</label>
-            <input id="input-new-password" type="password" placeholder="Escribe tu clave personal" required minlength="3" class="w-full bg-slate-50 border border-slate-200 text-slate-800 text-sm rounded-2xl px-4 py-3.5 focus:outline-none focus:ring-2 focus:ring-emerald-600 focus:border-emerald-600 transition" />
-          </div>
-
-          <div>
-            <label for="input-confirm-password" class="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-1.5">Confirma tu nueva clave</label>
-            <input id="input-confirm-password" type="password" placeholder="Repite tu clave personal" required minlength="3" class="w-full bg-slate-50 border border-slate-200 text-slate-800 text-sm rounded-2xl px-4 py-3.5 focus:outline-none focus:ring-2 focus:ring-emerald-600 focus:border-emerald-600 transition" />
-          </div>
-
-          <button type="submit" id="btn-save-force-password" class="w-full bg-gradient-to-r from-emerald-600 to-green-700 hover:from-emerald-700 hover:to-green-800 active:scale-[0.99] text-white font-bold text-sm py-3.5 rounded-2xl shadow-md shadow-emerald-600/20 transition flex items-center justify-center gap-2">
-            <i data-lucide="check-circle-2" class="w-4 h-4"></i>
-            <span>Guardar clave y marcarme Listo</span>
-          </button>
-        </form>
-      </section>
-
-      <!-- VISTA 3: PANEL PRINCIPAL DEL PARTICIPANTE -->
-      <section id="view-dashboard" class="hidden animate-pop space-y-5">
-        <!-- Saludo y badge de estado -->
-        <div class="flex items-center justify-between bg-slate-50 border border-slate-200/80 rounded-2xl px-4 py-3">
-          <div>
-            <p class="text-[11px] font-semibold uppercase tracking-wider text-slate-400">Participante</p>
-            <h2 id="dash-user-name" class="font-display text-lg font-extrabold text-slate-800 leading-tight"></h2>
-          </div>
-          <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800 border border-emerald-200">
-            <i data-lucide="badge-check" class="w-4 h-4 text-emerald-600"></i>
-            Listo
-          </span>
-        </div>
-
-        <!-- TARJETA DINÁMICA DEL SORTEO (ESPERANDO VS AMIGO SECRETO REVELADO) -->
-        <div id="dash-draw-section">
-          <!-- Se renderiza en tiempo real -->
-        </div>
-
-        <!-- TARJETA DE MIS 3 PISTAS DE REGALO -->
-        <div class="bg-white rounded-3xl p-5 border border-slate-200 shadow-sm space-y-4">
+      <!-- VISTA 2: LOGIN PARTICIPANTE -->
+      <section id="viewLogin" class="hidden flex-col gap-4">
+        <div id="loginStatusBanner" class="glass-card rounded-3xl p-4 border-l-4 border-l-rose-500">
           <div class="flex items-center justify-between">
-            <div class="flex items-center gap-2.5">
-              <div class="w-9 h-9 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center">
-                <i data-lucide="lightbulb" class="w-5 h-5"></i>
-              </div>
-              <div>
-                <h3 class="font-display text-base font-bold text-slate-800">Mis 3 pistas de regalo</h3>
-                <p class="text-xs text-slate-500">Ayuda a quien le toque regalarte</p>
-              </div>
-            </div>
+            <span class="text-xs font-bold uppercase tracking-wider text-rose-600">Estado del sorteo</span>
+            <span id="loginProgressBadge" class="text-xs font-extrabold px-2.5 py-0.5 rounded-full bg-rose-100 text-rose-700">0 / 28 listos</span>
           </div>
-
-          <form id="form-hints" class="space-y-3">
-            <div>
-              <label for="hint-1" class="block text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-1">Pista 1</label>
-              <input id="hint-1" type="text" maxlength="120" placeholder="Ej: Me encantan los chocolates oscuros o el café" class="w-full bg-slate-50 border border-slate-200 text-slate-800 text-sm rounded-xl px-3.5 py-2.5 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500 transition" />
-            </div>
-            <div>
-              <label for="hint-2" class="block text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-1">Pista 2</label>
-              <input id="hint-2" type="text" maxlength="120" placeholder="Ej: Talla M en franelas, colores neutros" class="w-full bg-slate-50 border border-slate-200 text-slate-800 text-sm rounded-xl px-3.5 py-2.5 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500 transition" />
-            </div>
-            <div>
-              <label for="hint-3" class="block text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-1">Pista 3</label>
-              <input id="hint-3" type="text" maxlength="120" placeholder="Ej: Libros de misterio, velas aromáticas o termos" class="w-full bg-slate-50 border border-slate-200 text-slate-800 text-sm rounded-xl px-3.5 py-2.5 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500 transition" />
-            </div>
-
-            <button type="submit" id="btn-save-hints" class="w-full bg-slate-900 hover:bg-slate-800 active:scale-[0.99] text-white font-semibold text-sm py-3 rounded-2xl shadow-sm transition flex items-center justify-center gap-2">
-              <i data-lucide="save" class="w-4 h-4 text-amber-400"></i>
-              <span>Guardar mis 3 pistas</span>
-            </button>
-          </form>
+          <p id="loginStatusHeadline" class="text-sm font-bold text-slate-800 mt-1.5">Cargando estado...</p>
+          <div class="w-full bg-slate-100 h-2 rounded-full mt-2.5 overflow-hidden">
+            <div id="loginProgressBar" class="festive-gradient h-full rounded-full transition-all duration-500" style="width: 0%"></div>
+          </div>
         </div>
 
-        <!-- CAMBIAR CLAVE NUEVAMENTE (OPCIONAL) -->
-        <div class="bg-slate-50 rounded-3xl p-4 border border-slate-200/80">
-          <button type="button" id="btn-toggle-change-pwd" class="w-full flex items-center justify-between text-left py-1">
-            <div class="flex items-center gap-2.5">
-              <div class="w-8 h-8 rounded-xl bg-white border border-slate-200 text-slate-600 flex items-center justify-center">
-                <i data-lucide="key-round" class="w-4 h-4"></i>
-              </div>
-              <div>
-                <span class="text-sm font-bold text-slate-700 block">Cambiar mi clave secreta</span>
-                <span class="text-[11px] text-slate-500">Actualiza tu contraseña personal si lo deseas</span>
-              </div>
-            </div>
-            <i data-lucide="chevron-down" id="icon-change-pwd-chevron" class="w-4 h-4 text-slate-400 transition-transform"></i>
-          </button>
+        <div class="glass-card rounded-3xl p-5">
+          <div class="mb-4">
+            <span class="inline-block text-[11px] font-bold uppercase tracking-wider text-rose-600 bg-rose-50 px-2.5 py-1 rounded-lg mb-2">Acceso Participantes</span>
+            <h2 class="text-xl font-extrabold text-slate-900">Ingresa a tu cuenta</h2>
+            <p class="text-xs text-slate-500 mt-1">Selecciona tu nombre de la lista fija e ingresa tu clave (si es tu primera vez, usa <strong class="text-slate-700">123</strong>).</p>
+          </div>
 
-          <form id="form-update-password" class="hidden mt-4 pt-4 border-t border-slate-200 space-y-3">
+          <form id="loginForm" class="space-y-4">
             <div>
-              <input id="input-update-pwd-1" type="password" placeholder="Nueva clave secreta (distinta de 123)" required minlength="3" class="w-full bg-white border border-slate-200 text-slate-800 text-sm rounded-xl px-3.5 py-2.5 focus:outline-none focus:ring-2 focus:ring-red-500" />
+              <label for="selectParticipant" class="block text-xs font-bold text-slate-700 mb-1.5">1. ¿Quién eres?</label>
+              <div class="relative">
+                <select id="selectParticipant" required
+                  class="w-full appearance-none rounded-2xl border border-slate-200 bg-white px-4 py-3.5 text-sm font-semibold text-slate-800 focus:border-rose-500 focus:outline-none focus:ring-4 focus:ring-rose-500/10 transition">
+                  <option value="" disabled selected>Selecciona tu nombre...</option>
+                </select>
+                <div class="pointer-events-none absolute inset-y-0 right-3.5 flex items-center text-slate-400">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                  </svg>
+                </div>
+              </div>
             </div>
+
             <div>
-              <input id="input-update-pwd-2" type="password" placeholder="Confirmar nueva clave secreta" required minlength="3" class="w-full bg-white border border-slate-200 text-slate-800 text-sm rounded-xl px-3.5 py-2.5 focus:outline-none focus:ring-2 focus:ring-red-500" />
+              <label for="inputPassword" class="block text-xs font-bold text-slate-700 mb-1.5">2. Tu clave secreta</label>
+              <input id="inputPassword" type="password" required placeholder="Clave inicial: 123"
+                class="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3.5 text-sm font-semibold text-slate-800 placeholder:text-slate-400 focus:border-rose-500 focus:outline-none focus:ring-4 focus:ring-rose-500/10 transition" />
             </div>
-            <button type="submit" class="w-full bg-red-600 hover:bg-red-700 text-white font-semibold text-xs py-3 rounded-xl transition">
-              Actualizar clave personal
+
+            <button type="submit"
+              class="w-full festive-gradient hover:opacity-95 active:scale-[0.99] text-white font-bold text-sm py-3.5 rounded-2xl shadow-lg shadow-rose-200 transition">
+              Entrar al intercambio
             </button>
           </form>
         </div>
       </section>
 
-      <!-- VISTA 4: LOGIN DE ADMINISTRADOR -->
-      <section id="view-admin-login" class="hidden animate-pop space-y-5">
-        <div class="flex items-center justify-between">
-          <button type="button" id="btn-back-from-admin-login" class="inline-flex items-center gap-1.5 text-xs font-bold text-slate-500 hover:text-slate-800 py-1.5 px-2.5 rounded-xl hover:bg-slate-100 transition">
-            <i data-lucide="arrow-left" class="w-4 h-4"></i>
-            Volver
-          </button>
-          <span class="text-xs font-bold uppercase tracking-wider text-slate-400">Acceso Restringido</span>
-        </div>
-
-        <div class="bg-slate-900 text-white rounded-3xl p-5 shadow-lg space-y-2">
-          <div class="w-11 h-11 rounded-2xl bg-amber-400/20 border border-amber-400/30 text-amber-300 flex items-center justify-center">
-            <i data-lucide="shield-alert" class="w-6 h-6"></i>
+      <!-- VISTA 3: CAMBIO OBLIGATORIO DE CLAVE -->
+      <section id="viewChangePassword" class="hidden flex-col gap-4">
+        <div class="glass-card rounded-3xl p-5">
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-[11px] font-bold uppercase tracking-wider text-amber-700 bg-amber-100 px-2.5 py-1 rounded-lg">Paso obligatorio</span>
+            <button type="button" id="btnCancelChangePw" class="text-xs font-semibold text-slate-400 hover:text-slate-600">Salir</button>
           </div>
-          <h2 class="font-display text-lg font-extrabold">Panel de Administrador</h2>
-          <p class="text-xs text-slate-300 leading-relaxed">
-            Solo para gestionar el estado de las claves. Por privacidad estricta, aquí nunca se muestran los resultados del sorteo ni las pistas.
+
+          <h2 class="text-xl font-extrabold text-slate-900">Hola, <span id="cpUserName" class="text-rose-600"></span></h2>
+          <p class="text-xs text-slate-600 mt-1.5 leading-relaxed">
+            Por seguridad, debes cambiar la clave predeterminada <strong class="text-slate-800">123</strong> por una clave personal secreta (distinta de 123) para quedar marcado como <strong class="text-emerald-600">Listo</strong>.
           </p>
-        </div>
 
-        <form id="form-admin-login" class="bg-white rounded-3xl p-5 border border-slate-200 shadow-sm space-y-4">
-          <div>
-            <label for="admin-username" class="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-1.5">Usuario Administrador</label>
-            <input id="admin-username" type="text" placeholder="Ingresa usuario" required class="w-full bg-slate-50 border border-slate-200 text-slate-800 text-sm rounded-2xl px-4 py-3.5 focus:outline-none focus:ring-2 focus:ring-slate-900" />
-          </div>
-          <div>
-            <label for="admin-password" class="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-1.5">Clave Administrador</label>
-            <input id="admin-password" type="password" placeholder="Ingresa clave" required class="w-full bg-slate-50 border border-slate-200 text-slate-800 text-sm rounded-2xl px-4 py-3.5 focus:outline-none focus:ring-2 focus:ring-slate-900" />
-          </div>
-          <button type="submit" class="w-full bg-slate-900 hover:bg-slate-800 active:scale-[0.99] text-white font-bold text-sm py-3.5 rounded-2xl shadow-md transition flex items-center justify-center gap-2">
-            <i data-lucide="unlock" class="w-4 h-4 text-amber-400"></i>
-            <span>Ingresar como Administrador</span>
-          </button>
-        </form>
+          <form id="changePasswordForm" class="space-y-3.5 mt-4">
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">Nueva clave personal</label>
+              <input id="newPassword" type="password" required minlength="3" placeholder="Escribe tu nueva clave secreta"
+                class="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm font-semibold text-slate-800 focus:border-rose-500 focus:outline-none focus:ring-4 focus:ring-rose-500/10" />
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">Confirma tu nueva clave</label>
+              <input id="confirmPassword" type="password" required minlength="3" placeholder="Repite tu nueva clave"
+                class="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm font-semibold text-slate-800 focus:border-rose-500 focus:outline-none focus:ring-4 focus:ring-rose-500/10" />
+            </div>
+            <button type="submit"
+              class="w-full emerald-gradient hover:opacity-95 active:scale-[0.99] text-white font-bold text-sm py-3.5 rounded-2xl shadow-lg shadow-emerald-200 transition">
+              Guardar mi clave y quedar Listo
+            </button>
+          </form>
+        </div>
       </section>
 
-      <!-- VISTA 5: PANEL CONFIDENCIAL DE ADMINISTRADOR -->
-      <section id="view-admin-panel" class="hidden animate-pop space-y-5">
-        <div class="flex items-center justify-between">
+      <!-- VISTA 4: PANEL DEL PARTICIPANTE -->
+      <section id="viewDashboard" class="hidden flex-col gap-4">
+        <div class="glass-card rounded-3xl p-4 flex items-center justify-between">
           <div>
-            <span class="text-[11px] font-bold uppercase tracking-wider text-amber-600 block">Modo Confidencial</span>
-            <h2 class="font-display text-lg font-extrabold text-slate-900">Control de Participantes</h2>
+            <div class="flex items-center gap-2">
+              <h2 id="dashUserName" class="text-lg font-extrabold text-slate-900">Participante</h2>
+              <span class="text-[10px] font-extrabold uppercase tracking-wider px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-700">Listo ✓</span>
+            </div>
+            <p class="text-xs text-slate-500 mt-0.5">Tu clave personal está activa y protegida</p>
           </div>
-          <button type="button" id="btn-admin-logout" class="px-3 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold flex items-center gap-1.5 transition">
-            <i data-lucide="log-out" class="w-3.5 h-3.5"></i>
-            Salir
+          <div class="flex items-center gap-1.5">
+            <button id="btnOpenUpdatePw" type="button" title="Cambiar mi clave"
+              class="p-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 transition">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 5.25a3 3 0 0 1 3 3m3 0a6 6 0 0 1-7.029 5.912c-.563-.097-1.159.026-1.563.43L10.5 17.25H8.25v2.25H6v2.25H2.25v-2.818c0-.597.237-1.17.659-1.591l6.499-6.499c.404-.404.527-1 .43-1.563A6 6 0 1 1 21.75 8.25Z" />
+              </svg>
+            </button>
+            <button id="btnLogoutUser" type="button"
+              class="px-3 py-2 rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-600 text-xs font-bold transition">
+              Salir
+            </button>
+          </div>
+        </div>
+
+        <!-- TARJETA PROTAGONISTA: RESULTADO DEL SORTEO O ESPERA EN TIEMPO REAL -->
+        <div id="drawResultCard" class="rounded-3xl p-5 shadow-lg transition-all">
+          <div id="drawWaitingState">
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-[11px] font-extrabold uppercase tracking-wider px-2.5 py-1 rounded-full bg-amber-100 text-amber-800">
+                Sorteo en espera
+              </span>
+              <span id="dashReadyCounter" class="text-xs font-extrabold text-slate-600">0 / 28</span>
+            </div>
+            <h3 id="dashMissingHeadline" class="text-lg font-extrabold text-slate-900 mt-1">
+              Faltan X personas para cambiar la clave
+            </h3>
+            <p class="text-xs text-slate-600 mt-1 leading-relaxed">
+              En cuanto los 28 participantes cambien su clave <strong class="text-slate-800">123</strong>, el sorteo se realizará automáticamente y <strong>aquí mismo aparecerá a quién te tocó regalarle junto con sus 3 pistas</strong>.
+            </p>
+
+            <div class="mt-3 pt-3 border-t border-slate-200/70">
+              <p class="text-[11px] font-bold uppercase tracking-wider text-slate-500 mb-2">Personas que aún faltan:</p>
+              <div id="missingNamesChips" class="flex flex-wrap gap-1.5"></div>
+            </div>
+          </div>
+
+          <div id="drawCompletedState" class="hidden text-white">
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-[11px] font-extrabold uppercase tracking-wider px-2.5 py-1 rounded-full bg-white/20 text-white">
+                ¡Sorteo Realizado!
+              </span>
+              <span class="text-xs font-semibold text-rose-100">Confidencial</span>
+            </div>
+
+            <p class="text-xs font-semibold text-rose-100 mt-2">Tu Amigo Secreto es:</p>
+            <h3 id="assignedPersonName" class="text-3xl font-extrabold tracking-tight text-white mt-0.5">---</h3>
+
+            <div class="mt-4 bg-white/15 backdrop-blur-md rounded-2xl p-4 border border-white/20">
+              <div class="flex items-center justify-between mb-2.5">
+                <p class="text-xs font-extrabold uppercase tracking-wider text-amber-200 flex items-center gap-1.5">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 0 0 1.5-.189m-1.5.189a6.01 6.01 0 0 1-1.5-.189m3.75 7.478a12.06 12.06 0 0 1-4.5 0m3.75 2.383a14.406 14.406 0 0 1-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 1 0-7.517 0c.85.493 1.509 1.333 1.509 2.316V18" />
+                  </svg>
+                  Sus 3 pistas de regalo
+                </p>
+                <span class="text-[10px] font-semibold text-rose-100">En vivo</span>
+              </div>
+
+              <ul class="space-y-2 text-sm">
+                <li class="bg-black/15 rounded-xl px-3 py-2 flex items-start gap-2">
+                  <span class="font-extrabold text-amber-300">1.</span>
+                  <span id="targetHint1" class="text-white/95 font-medium italic">Aún no escribió esta pista...</span>
+                </li>
+                <li class="bg-black/15 rounded-xl px-3 py-2 flex items-start gap-2">
+                  <span class="font-extrabold text-amber-300">2.</span>
+                  <span id="targetHint2" class="text-white/95 font-medium italic">Aún no escribió esta pista...</span>
+                </li>
+                <li class="bg-black/15 rounded-xl px-3 py-2 flex items-start gap-2">
+                  <span class="font-extrabold text-amber-300">3.</span>
+                  <span id="targetHint3" class="text-white/95 font-medium italic">Aún no escribió esta pista...</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- TARJETA: MIS 3 PISTAS DE REGALO -->
+        <div class="glass-card rounded-3xl p-5">
+          <div class="mb-3">
+            <h3 class="text-base font-extrabold text-slate-900">Mis 3 pistas de regalo</h3>
+            <p class="text-xs text-slate-500 mt-0.5">Escribe ideas, tallas, colores o gustos. Quien te regale las verá actualizadas al instante.</p>
+          </div>
+
+          <form id="hintsForm" class="space-y-3">
+            <div>
+              <label class="block text-[11px] font-bold text-slate-600 mb-1">Pista 1</label>
+              <input id="myHint1" type="text" maxlength="140" placeholder="Ej: Me encantan los chocolates amargos o el café..."
+                class="w-full rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 text-sm font-medium text-slate-800 focus:border-rose-500 focus:outline-none focus:ring-4 focus:ring-rose-500/10" />
+            </div>
+            <div>
+              <label class="block text-[11px] font-bold text-slate-600 mb-1">Pista 2</label>
+              <input id="myHint2" type="text" maxlength="140" placeholder="Ej: Talla M en franelas, colores neutros..."
+                class="w-full rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 text-sm font-medium text-slate-800 focus:border-rose-500 focus:outline-none focus:ring-4 focus:ring-rose-500/10" />
+            </div>
+            <div>
+              <label class="block text-[11px] font-bold text-slate-600 mb-1">Pista 3</label>
+              <input id="myHint3" type="text" maxlength="140" placeholder="Ej: Accesorios para escritorio o lectura..."
+                class="w-full rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 text-sm font-medium text-slate-800 focus:border-rose-500 focus:outline-none focus:ring-4 focus:ring-rose-500/10" />
+            </div>
+
+            <button type="submit"
+              class="w-full bg-slate-900 hover:bg-slate-800 active:scale-[0.99] text-white font-bold text-sm py-3 rounded-2xl shadow-md transition">
+              Guardar mis 3 pistas
+            </button>
+          </form>
+        </div>
+
+        <!-- Modal interno para cambiar clave opcionalmente -->
+        <div id="modalUpdatePassword" class="hidden fixed inset-0 z-40 bg-slate-900/50 backdrop-blur-xs flex items-center justify-center p-4">
+          <div class="bg-white rounded-3xl p-5 w-full max-w-[390px] shadow-2xl">
+            <h3 class="text-base font-extrabold text-slate-900">Cambiar mi clave personal</h3>
+            <p class="text-xs text-slate-500 mt-1">Elige una nueva clave secreta (distinta de 123).</p>
+            <form id="optionalUpdatePwForm" class="space-y-3 mt-4">
+              <input id="optNewPw" type="password" required minlength="3" placeholder="Nueva clave"
+                class="w-full rounded-xl border border-slate-200 px-3.5 py-2.5 text-sm font-semibold" />
+              <input id="optConfirmPw" type="password" required minlength="3" placeholder="Confirmar nueva clave"
+                class="w-full rounded-xl border border-slate-200 px-3.5 py-2.5 text-sm font-semibold" />
+              <div class="flex gap-2 pt-1">
+                <button type="button" id="btnCloseOptPw" class="flex-1 py-2.5 rounded-xl bg-slate-100 text-slate-700 font-bold text-xs">Cancelar</button>
+                <button type="submit" class="flex-1 py-2.5 rounded-xl festive-gradient text-white font-bold text-xs">Actualizar clave</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <!-- VISTA 5: LOGIN ADMINISTRADOR -->
+      <section id="viewAdminLogin" class="hidden flex-col gap-4">
+        <div class="glass-card rounded-3xl p-5">
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-[11px] font-extrabold uppercase tracking-wider text-slate-700 bg-slate-200/70 px-2.5 py-1 rounded-lg">Área Confidencial</span>
+            <button type="button" id="btnBackFromAdminLogin" class="text-xs font-bold text-rose-600 hover:underline">← Volver</button>
+          </div>
+          <h2 class="text-xl font-extrabold text-slate-900">Panel de Administrador</h2>
+          <p class="text-xs text-slate-500 mt-1">Acceso exclusivo para control de claves y estado de participantes.</p>
+
+          <form id="adminLoginForm" class="space-y-3.5 mt-4">
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">Usuario</label>
+              <input id="adminUser" type="text" required placeholder="Usuario administrador"
+                class="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm font-semibold" />
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">Clave</label>
+              <input id="adminPass" type="password" required placeholder="••••••••"
+                class="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm font-semibold" />
+            </div>
+            <button type="submit"
+              class="w-full bg-slate-900 hover:bg-slate-800 text-white font-bold text-sm py-3.5 rounded-2xl shadow-lg transition">
+              Ingresar como Administrador
+            </button>
+          </form>
+        </div>
+      </section>
+
+      <!-- VISTA 6: PANEL ADMINISTRADOR (CONFIDENCIAL) -->
+      <section id="viewAdminPanel" class="hidden flex-col gap-4">
+        <div class="glass-card rounded-3xl p-4 flex items-center justify-between">
+          <div>
+            <h2 class="text-base font-extrabold text-slate-900">Control de Administrador</h2>
+            <p class="text-[11px] text-slate-500">Privacidad activa: parejas y pistas ocultas</p>
+          </div>
+          <button id="btnLogoutAdmin" type="button"
+            class="px-3 py-2 rounded-xl bg-slate-900 text-white text-xs font-bold">
+            Cerrar Admin
           </button>
         </div>
 
-        <!-- Aviso de privacidad estricta -->
-        <div class="bg-slate-900 text-slate-200 rounded-2xl p-3.5 flex items-center gap-3 text-xs">
-          <i data-lucide="eye-off" class="w-5 h-5 text-amber-400 shrink-0"></i>
-          <span>Privacidad garantizada: las parejas del sorteo, claves personales y pistas están ocultas en este panel.</span>
-        </div>
-
-        <!-- Resumen numérico Listos vs Pendientes -->
         <div class="grid grid-cols-2 gap-3">
-          <div class="bg-emerald-50 border border-emerald-200 rounded-2xl p-4 text-center">
-            <span class="text-xs font-bold uppercase tracking-wider text-emerald-700 block">Listos</span>
-            <span id="admin-count-ready" class="font-display text-3xl font-extrabold text-emerald-800 mt-1 block">0</span>
-            <span class="text-[11px] text-emerald-600">de 28 personas</span>
+          <div class="glass-card rounded-2xl p-4 border-b-4 border-b-emerald-500">
+            <p class="text-[11px] font-bold uppercase tracking-wider text-slate-500">Listos</p>
+            <p id="adminReadyCount" class="text-2xl font-extrabold text-emerald-600 mt-1">0</p>
+            <p class="text-[11px] text-slate-400">Clave cambiada</p>
           </div>
-          <div class="bg-amber-50 border border-amber-200 rounded-2xl p-4 text-center">
-            <span class="text-xs font-bold uppercase tracking-wider text-amber-700 block">Pendientes (123)</span>
-            <span id="admin-count-pending" class="font-display text-3xl font-extrabold text-amber-800 mt-1 block">28</span>
-            <span class="text-[11px] text-amber-600">de 28 personas</span>
+          <div class="glass-card rounded-2xl p-4 border-b-4 border-b-amber-500">
+            <p class="text-[11px] font-bold uppercase tracking-wider text-slate-500">Pendientes</p>
+            <p id="adminPendingCount" class="text-2xl font-extrabold text-amber-600 mt-1">28</p>
+            <p class="text-[11px] text-slate-400">Aún con clave 123</p>
           </div>
         </div>
 
-        <!-- Buscador de participantes -->
-        <div class="relative">
-          <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2"></i>
-          <input id="admin-search-input" type="text" placeholder="Buscar participante por nombre..." class="w-full bg-slate-50 border border-slate-200 text-slate-800 text-sm rounded-2xl pl-10 pr-4 py-3 focus:outline-none focus:ring-2 focus:ring-slate-900" />
-        </div>
+        <div class="glass-card rounded-3xl p-4">
+          <div class="mb-3">
+            <input id="adminSearchInput" type="text" placeholder="Buscar participante por nombre..."
+              class="w-full rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 text-sm font-medium focus:border-slate-900 focus:outline-none" />
+          </div>
 
-        <!-- Lista de los 28 participantes -->
-        <div id="admin-participants-list" class="space-y-2.5 pb-4">
-          <!-- Se renderiza dinámicamente -->
+          <div id="adminParticipantsList" class="divide-y divide-slate-100 max-h-[420px] overflow-y-auto pr-1"></div>
         </div>
       </section>
 
     </main>
 
-    <!-- Pie de página discreto -->
-    <footer class="px-5 py-4 text-center border-t border-slate-100 text-[11px] text-slate-400">
-      Amigo Secreto • Sincronizado en tiempo real
+    <footer class="text-center text-[11px] text-slate-400 mt-6 pb-2">
+      Intercambio Amigo Secreto · Sincronizado en tiempo real
     </footer>
-
-    <!-- NOTIFICACIÓN TOAST FLOTANTE -->
-    <div id="toast-container" class="fixed bottom-5 left-1/2 -translate-x-1/2 z-50 w-[90%] max-w-sm pointer-events-none flex flex-col gap-2"></div>
-
-    <!-- MODAL DE CONFIRMACIÓN PERSONALIZADO (SIN ALERT/CONFIRM NATIVO) -->
-    <div id="confirm-modal" class="hidden fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4">
-      <div class="bg-white rounded-3xl max-w-sm w-full p-6 shadow-2xl border border-slate-100 animate-pop space-y-4">
-        <div class="w-12 h-12 rounded-2xl bg-amber-100 text-amber-600 flex items-center justify-center mx-auto">
-          <i data-lucide="rotate-ccw" class="w-6 h-6"></i>
-        </div>
-        <div class="text-center space-y-1.5">
-          <h3 id="modal-title" class="font-display text-lg font-extrabold text-slate-900">Confirmar acción</h3>
-          <p id="modal-message" class="text-xs text-slate-600 leading-relaxed"></p>
-        </div>
-        <div class="grid grid-cols-2 gap-2.5 pt-2">
-          <button type="button" id="modal-btn-cancel" class="py-3 rounded-2xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs transition">
-            Cancelar
-          </button>
-          <button type="button" id="modal-btn-confirm" class="py-3 rounded-2xl bg-red-600 hover:bg-red-700 text-white font-bold text-xs shadow-md shadow-red-600/20 transition">
-            Sí, reiniciar
-          </button>
-        </div>
-      </div>
-    </div>
-
   </div>
 
-  <!-- LÓGICA DE APLICACIÓN Y FIREBASE FIRESTORE -->
+  <!-- Supabase SDK -->
   <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-    import { getAuth, signInAnonymously, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
-    import {
-      getFirestore,
-      doc,
-      getDoc,
-      setDoc,
-      updateDoc,
-      collection,
-      onSnapshot,
-      runTransaction,
-      writeBatch
-    } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+    import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 
-    // =========================================================================
-    // 1. CONSTANTES Y LISTA FIJA DE 28 PARTICIPANTES
-    // =========================================================================
-    const PARTICIPANTS_LIST = [
+    const SUPABASE_URL = "https://chiuinvpnrhrpmqsmgbh.supabase.co";
+    const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_ZpUyNDiBqW0RMSAMCm2TVA_PxpMWvLa";
+
+    const supabase = createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY, {
+      realtime: { params: { eventsPerSecond: 10 } }
+    });
+
+    const PARTICIPANTS = [
       "Luis", "Amelia", "Rebeca", "Aldemaro", "Jose Fernando", "Mafer", "Eva",
       "Naha", "Renzo", "Ailiyn", "Axel", "Sra Yilia", "Shirley", "Federico",
       "Santiago", "Katiuska", "Jose Gregorio", "Karilu", "Jose German", "Caroina",
@@ -418,932 +395,518 @@
     const ADMIN_USER = "José";
     const ADMIN_PASS = "15185";
 
-    // Configuración global inyectada por el entorno
-    const appId = typeof __app_id !== 'undefined' ? __app_id : 'amigo-secreto-app';
-    const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : null;
-
-    // =========================================================================
-    // 2. ESTADO REACTIVO EN MEMORIA
-    // =========================================================================
-    let db = null;
-    let auth = null;
-    let currentUser = null;
-
-    // Mapa de participantes sincronizado en vivo: { [id]: { id, name, password, ready, hints, assignedTo } }
     let participantsMap = {};
-    // Documento maestro del estado del sorteo: { drawCompleted: boolean, completedAt: string | null }
-    let metaState = { drawCompleted: false, completedAt: null };
-
-    // Sesión local activa en esta pantalla (no usa localStorage, solo estado de sesión)
-    let loggedParticipantId = null;
+    let drawState = { completado: false, asignaciones: {} };
+    let currentUserId = null;
+    let pendingPasswordUserId = null;
     let isAdminLoggedIn = false;
-    let isTriggeringDraw = false;
-    let modalConfirmCallback = null;
+    let initializedData = false;
+    let drawTriggerInFlight = false;
 
-    // =========================================================================
-    // 3. UTILIDADES UI (VISTAS, TOASTS, MODAL, ICONOS)
-    // =========================================================================
-    function refreshIcons() {
-      if (window.lucide) {
-        window.lucide.createIcons();
-      }
+    function toDocId(name) {
+      return name.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/\s+/g, "_");
     }
 
-    function showToast(message, type = 'info') {
-      const container = document.getElementById('toast-container');
-      const toast = document.createElement('div');
-      const colors = {
-        success: 'bg-emerald-900 text-white border-emerald-700',
-        error: 'bg-red-900 text-white border-red-700',
-        info: 'bg-slate-900 text-white border-slate-700'
-      };
-      const iconName = type === 'success' ? 'check-circle-2' : type === 'error' ? 'alert-circle' : 'info';
-
-      toast.className = `${colors[type] || colors.info} border px-4 py-3 rounded-2xl shadow-xl flex items-center gap-2.5 text-xs font-semibold animate-pop pointer-events-auto`;
-      toast.innerHTML = `<i data-lucide="${iconName}" class="w-4 h-4 shrink-0 text-amber-300"></i><span>${escapeHtml(message)}</span>`;
-
-      container.appendChild(toast);
-      refreshIcons();
-
-      setTimeout(() => {
-        toast.style.opacity = '0';
-        toast.style.transform = 'translateY(8px)';
-        toast.style.transition = 'all 0.25s ease';
-        setTimeout(() => toast.remove(), 260);
-      }, 3400);
-    }
-
-    function openConfirmModal({ title, message, confirmText = 'Confirmar', onConfirm }) {
-      document.getElementById('modal-title').textContent = title;
-      document.getElementById('modal-message').textContent = message;
-      document.getElementById('modal-btn-confirm').textContent = confirmText;
-      modalConfirmCallback = onConfirm;
-      document.getElementById('confirm-modal').classList.remove('hidden');
-    }
-
-    function closeConfirmModal() {
-      document.getElementById('confirm-modal').classList.add('hidden');
-      modalConfirmCallback = null;
-    }
-
-    function escapeHtml(str) {
-      if (str === null || str === undefined) return '';
-      return String(str)
-        .replace(/&/g, '&amp;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;')
-        .replace(/"/g, '&quot;')
-        .replace(/'/g, '&#039;');
-    }
-
-    function slugifyName(name) {
-      return name.trim().toLowerCase().replace(/\s+/g, '_');
-    }
-
-    function switchView(viewId) {
-      const views = [
-        'view-loading',
-        'view-login',
-        'view-force-password',
-        'view-dashboard',
-        'view-admin-login',
-        'view-admin-panel'
-      ];
-      views.forEach(id => {
-        const el = document.getElementById(id);
-        if (el) el.classList.toggle('hidden', id !== viewId);
+    const views = ["viewLoading", "viewLogin", "viewChangePassword", "viewDashboard", "viewAdminLogin", "viewAdminPanel"];
+    function showView(viewId) {
+      views.forEach(v => {
+        const el = document.getElementById(v);
+        if (el) {
+          el.classList.add("hidden");
+          el.classList.remove("flex");
+        }
       });
-      updateHeaderActions();
-      refreshIcons();
-    }
-
-    function updateHeaderActions() {
-      const container = document.getElementById('header-actions');
-      if (loggedParticipantId) {
-        container.innerHTML = `
-          <button id="btn-participant-logout" type="button" class="px-3 py-2 rounded-xl bg-white/15 hover:bg-white/25 active:scale-95 transition text-xs font-semibold flex items-center gap-1.5 border border-white/20 shadow-sm">
-            <i data-lucide="log-out" class="w-4 h-4 text-amber-300"></i>
-            <span>Salir</span>
-          </button>
-        `;
-        document.getElementById('btn-participant-logout').addEventListener('click', () => {
-          loggedParticipantId = null;
-          document.getElementById('input-login-password').value = '';
-          switchView('view-login');
-          showToast('Sesión cerrada correctamente.');
-        });
-      } else if (isAdminLoggedIn) {
-        container.innerHTML = `
-          <span class="px-2.5 py-1.5 rounded-xl bg-amber-400/20 border border-amber-300/30 text-amber-200 text-[11px] font-bold flex items-center gap-1">
-            <i data-lucide="shield-check" class="w-3.5 h-3.5"></i>
-            Admin
-          </span>
-        `;
-      } else {
-        container.innerHTML = `
-          <button id="btn-open-admin" type="button" class="px-3 py-2 rounded-xl bg-white/15 hover:bg-white/25 active:scale-95 transition text-xs font-semibold flex items-center gap-1.5 border border-white/20 shadow-sm">
-            <i data-lucide="shield-check" class="w-4 h-4 text-amber-300"></i>
-            <span>Administrador</span>
-          </button>
-        `;
-        document.getElementById('btn-open-admin').addEventListener('click', () => {
-          document.getElementById('admin-username').value = '';
-          document.getElementById('admin-password').value = '';
-          switchView('view-admin-login');
-        });
-      }
-      refreshIcons();
-    }
-
-    // =========================================================================
-    // 4. INICIALIZACIÓN DE FIREBASE Y SEED IDEMPOTENTE
-    // =========================================================================
-    async function initFirebase() {
-      try {
-        if (!firebaseConfig) {
-          throw new Error("Configuración de Firebase no disponible.");
-        }
-        const app = initializeApp(firebaseConfig);
-        auth = getAuth(app);
-        db = getFirestore(app);
-
-        // Autenticación obligatoria antes de consultar Firestore
-        if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
-          await signInWithCustomToken(auth, __initial_auth_token);
-        } else {
-          await signInAnonymously(auth);
-        }
-        currentUser = auth.currentUser;
-
-        if (!currentUser) {
-          throw new Error("No se pudo autenticar la sesión.");
-        }
-
-        // Poblar el selector fijo con los 28 nombres exactos
-        populateParticipantDropdown();
-
-        // Inicializar de forma idempotente los 28 documentos y el documento maestro
-        await ensureInitialSeed();
-
-        // Iniciar listeners en tiempo real (onSnapshot)
-        startRealtimeListeners();
-
-        switchView('view-login');
-      } catch (err) {
-        console.error("Error inicializando la aplicación:", err);
-        document.getElementById('global-status-text').textContent = "Error de conexión";
-        showToast("No se pudo conectar con la base de datos. Recarga la página.", "error");
+      const target = document.getElementById(viewId);
+      if (target) {
+        target.classList.remove("hidden");
+        target.classList.add("flex");
       }
     }
 
-    function populateParticipantDropdown() {
-      const select = document.getElementById('select-participant');
-      select.innerHTML = '<option value="" disabled selected>Elige tu nombre de la lista (28)...</option>';
-      PARTICIPANTS_LIST.forEach((name, idx) => {
-        const option = document.createElement('option');
-        option.value = slugifyName(name);
-        option.textContent = `${idx + 1}. ${name}`;
-        select.appendChild(option);
-      });
+    let toastTimer = null;
+    function showToast(msg, type = "info") {
+      const toast = document.getElementById("toast");
+      toast.textContent = msg;
+      toast.className = "fixed top-4 left-1/2 -translate-x-1/2 z-50 max-w-[380px] w-[90%] px-4 py-3 rounded-2xl shadow-xl text-sm font-semibold text-white text-center transition-all";
+      if (type === "error") toast.classList.add("bg-rose-600");
+      else if (type === "success") toast.classList.add("bg-emerald-600");
+      else toast.classList.add("bg-slate-900");
+      toast.classList.remove("hidden");
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => toast.classList.add("hidden"), 3400);
     }
 
-    // Rutas estrictas bajo /artifacts/{appId}/public/data/{collectionName}
-    function getParticipantsCollectionRef() {
-      return collection(db, 'artifacts', appId, 'public', 'data', 'secret_santa_participants');
-    }
+    const selectParticipant = document.getElementById("selectParticipant");
+    PARTICIPANTS.forEach(name => {
+      const opt = document.createElement("option");
+      opt.value = toDocId(name);
+      opt.textContent = name;
+      selectParticipant.appendChild(opt);
+    });
 
-    function getParticipantDocRef(id) {
-      return doc(db, 'artifacts', appId, 'public', 'data', 'secret_santa_participants', id);
-    }
-
-    function getMetaDocRef() {
-      return doc(db, 'artifacts', appId, 'public', 'data', 'secret_santa_meta', 'state');
-    }
-
-    async function ensureInitialSeed() {
-      if (!currentUser) return;
-      const metaRef = getMetaDocRef();
-      const metaSnap = await getDoc(metaRef);
-
-      // Verificamos si ya existe el documento maestro y si faltan participantes
-      const batch = writeBatch(db);
-      let hasWrites = false;
-
-      if (!metaSnap.exists()) {
-        batch.set(metaRef, {
-          drawCompleted: false,
-          completedAt: null
-        });
-        hasWrites = true;
-      }
-
-      // Verificar cada uno de los 28 participantes de forma idempotente
-      const checks = await Promise.all(
-        PARTICIPANTS_LIST.map(async (name, index) => {
-          const id = slugifyName(name);
-          const pRef = getParticipantDocRef(id);
-          const snap = await getDoc(pRef);
-          return { id, name, order: index, exists: snap.exists(), ref: pRef };
-        })
-      );
-
-      for (const item of checks) {
-        if (!item.exists) {
-          batch.set(item.ref, {
-            id: item.id,
-            name: item.name,
-            order: item.order,
-            password: '123',
-            ready: false,
-            hints: ['', '', ''],
-            assignedTo: null
-          });
-          hasWrites = true;
-        }
-      }
-
-      if (hasWrites) {
-        await batch.commit();
-      }
-    }
-
-    // =========================================================================
-    // 5. LISTENERS EN TIEMPO REAL (FIRESTORE ONSNAPSHOT)
-    // =========================================================================
-    function startRealtimeListeners() {
-      if (!currentUser) return;
-
-      // Listener 1: Documento maestro del sorteo
-      onSnapshot(
-        getMetaDocRef(),
-        (docSnap) => {
-          if (docSnap.exists()) {
-            metaState = docSnap.data();
-          } else {
-            metaState = { drawCompleted: false, completedAt: null };
-          }
-          onRealtimeStateChanged();
-        },
-        (error) => {
-          console.error("Error escuchando estado maestro:", error);
-        }
-      );
-
-      // Listener 2: Todos los participantes (sin orderBy ni where compuestos)
-      onSnapshot(
-        getParticipantsCollectionRef(),
-        (querySnapshot) => {
-          const updatedMap = {};
-          querySnapshot.forEach((docSnap) => {
-            const data = docSnap.data();
-            updatedMap[docSnap.id] = data;
-          });
-          participantsMap = updatedMap;
-          onRealtimeStateChanged();
-        },
-        (error) => {
-          console.error("Error escuchando participantes:", error);
-        }
-      );
-    }
-
-    // =========================================================================
-    // 6. ALGORITMO DE SORTEO AUTOMÁTICO (DESARREGLO / DERANGEMENT)
-    // =========================================================================
-    function generateValidDerangement(ids) {
+    function generateDerangement(ids) {
       const n = ids.length;
-      if (n < 2) throw new Error("Se necesitan al menos 2 participantes.");
-
-      // Algoritmo de Sattolo (garantiza un ciclo único de longitud n, 0 puntos fijos)
-      // Combinado con verificación estricta para asegurar 100% que nadie se toque a sí mismo.
-      const receivers = [...ids];
-      for (let i = n - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * i); // 0 <= j < i
-        const temp = receivers[i];
-        receivers[i] = receivers[j];
-        receivers[j] = temp;
+      let shuffled = [...ids];
+      let valid = false;
+      while (!valid) {
+        for (let i = n - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+        }
+        valid = true;
+        for (let i = 0; i < n; i++) {
+          if (shuffled[i] === ids[i]) {
+            valid = false;
+            break;
+          }
+        }
       }
-
-      // Validación de seguridad
-      const assignments = {};
+      const mapping = {};
       for (let i = 0; i < n; i++) {
-        if (ids[i] === receivers[i]) {
-          // Fallback recursivo por seguridad matemática absoluta
-          return generateValidDerangement(ids);
-        }
-        assignments[ids[i]] = receivers[i];
+        mapping[ids[i]] = shuffled[i];
       }
-      return assignments;
+      return mapping;
     }
 
-    async function checkAndTriggerAutomaticDraw() {
-      if (!currentUser || isTriggeringDraw) return;
+    async function loadInitialState() {
+      const { data: pRows, error: pErr } = await supabase.from("participantes").select("*");
+      if (pErr) {
+        console.error("Error cargando participantes:", pErr);
+        document.getElementById("syncDot").className = "w-2 h-2 rounded-full bg-rose-500 inline-block";
+        document.getElementById("syncText").textContent = "Error de conexión a Supabase";
+        showToast("Verifica el SQL y permisos en Supabase", "error");
+        return;
+      }
 
-      const allIds = PARTICIPANTS_LIST.map(slugifyName);
-      if (Object.keys(participantsMap).length < allIds.length) return;
-
-      const allReady = allIds.every(id => {
-        const p = participantsMap[id];
-        return p && p.ready === true && p.password !== '123';
+      const existingIds = new Set();
+      (pRows || []).forEach(row => {
+        existingIds.add(row.id);
+        participantsMap[row.id] = row;
       });
 
-      if (allReady && !metaState.drawCompleted) {
-        isTriggeringDraw = true;
-        try {
-          await runTransaction(db, async (transaction) => {
-            const metaRef = getMetaDocRef();
-            const metaSnap = await transaction.get(metaRef);
+      const missingRows = PARTICIPANTS
+        .filter(name => !existingIds.has(toDocId(name)))
+        .map(name => ({
+          id: toDocId(name),
+          nombre: name,
+          clave: "123",
+          cambio_clave: false,
+          pista_1: "",
+          pista_2: "",
+          pista_3: ""
+        }));
 
-            if (metaSnap.exists() && metaSnap.data().drawCompleted === true) {
-              // Otro cliente ya ejecutó la transacción justo antes
-              return;
-            }
-
-            // Leer los 28 documentos dentro de la transacción para garantizar atomicidad
-            const participantDocs = [];
-            for (const id of allIds) {
-              const pRef = getParticipantDocRef(id);
-              const pSnap = await transaction.get(pRef);
-              if (!pSnap.exists()) throw new Error(`Falta participante ${id}`);
-              const pData = pSnap.data();
-              if (!pData.ready || pData.password === '123') {
-                throw new Error("Aún hay participantes sin clave personal.");
-              }
-              participantDocs.push({ ref: pRef, data: pData });
-            }
-
-            // Generar desarreglo válido donde nadie se toque a sí mismo
-            const assignments = generateValidDerangement(allIds);
-
-            // Escribir asignaciones y marcar sorteo completado
-            for (const item of participantDocs) {
-              transaction.update(item.ref, {
-                assignedTo: assignments[item.data.id]
-              });
-            }
-
-            transaction.set(metaRef, {
-              drawCompleted: true,
-              completedAt: new Date().toISOString()
-            });
-          });
-
-          showToast("¡Todos listos! El sorteo se ha realizado automáticamente.", "success");
-        } catch (err) {
-          // Si falló por concurrencia o porque alguien aún no estaba listo, se ignora limpiamente
-          console.log("Transacción de sorteo omitida o reintentada:", err.message);
-        } finally {
-          isTriggeringDraw = false;
-        }
+      if (missingRows.length > 0) {
+        await supabase.from("participantes").upsert(missingRows, { onConflict: "id" });
+        const { data: refreshed } = await supabase.from("participantes").select("*");
+        participantsMap = {};
+        (refreshed || []).forEach(row => {
+          participantsMap[row.id] = row;
+        });
       }
-    }
 
-    // =========================================================================
-    // 7. ACTUALIZACIÓN DE INTERFAZ EN TIEMPO REAL
-    // =========================================================================
-    function onRealtimeStateChanged() {
-      const orderedParticipants = PARTICIPANTS_LIST.map(name => {
-        const id = slugifyName(name);
-        return participantsMap[id] || {
-          id,
-          name,
-          password: '123',
-          ready: false,
-          hints: ['', '', ''],
-          assignedTo: null
+      const { data: sRow } = await supabase.from("sorteo").select("*").eq("id", "general").maybeSingle();
+      if (sRow) {
+        drawState = {
+          completado: Boolean(sRow.completado),
+          asignaciones: sRow.asignaciones || {}
         };
-      });
+      } else {
+        await supabase.from("sorteo").upsert({ id: "general", completado: false, asignaciones: {} });
+      }
 
-      const readyList = orderedParticipants.filter(p => p.ready && p.password !== '123');
-      const pendingList = orderedParticipants.filter(p => !p.ready || p.password === '123');
-      const totalCount = PARTICIPANTS_LIST.length;
+      document.getElementById("syncDot").className = "w-2 h-2 rounded-full bg-emerald-500 inline-block";
+      document.getElementById("syncText").textContent = "En vivo · 28 participantes";
+
+      if (!initializedData) {
+        initializedData = true;
+        showView("viewLogin");
+      }
+
+      renderAll();
+      await checkAndTriggerAutoDraw();
+    }
+
+    async function checkAndTriggerAutoDraw() {
+      if (drawTriggerInFlight || drawState.completado) return;
+      const allIds = PARTICIPANTS.map(toDocId);
+      if (allIds.some(id => !participantsMap[id])) return;
+
+      const allReady = allIds.every(id => participantsMap[id].cambio_clave === true && participantsMap[id].clave !== "123");
+      if (!allReady) return;
+
+      drawTriggerInFlight = true;
+      try {
+        const { data: latestDraw } = await supabase.from("sorteo").select("*").eq("id", "general").single();
+        if (latestDraw?.completado) {
+          drawState = { completado: true, asignaciones: latestDraw.asignaciones || {} };
+          renderAll();
+          return;
+        }
+
+        const { data: latestParticipants } = await supabase.from("participantes").select("id, clave, cambio_clave");
+        const freshMap = {};
+        (latestParticipants || []).forEach(p => { freshMap[p.id] = p; });
+        const stillAllReady = allIds.every(id => freshMap[id]?.cambio_clave === true && freshMap[id]?.clave !== "123");
+        if (!stillAllReady) return;
+
+        const asignaciones = generateDerangement(allIds);
+        const { data: updated, error } = await supabase
+          .from("sorteo")
+          .update({
+            completado: true,
+            asignaciones,
+            completado_en: new Date().toISOString()
+          })
+          .eq("id", "general")
+          .eq("completado", false)
+          .select()
+          .maybeSingle();
+
+        if (!error && updated) {
+          drawState = { completado: true, asignaciones: updated.asignaciones || asignaciones };
+          renderAll();
+        }
+      } catch (err) {
+        console.error("Error ejecutando sorteo automático:", err);
+      } finally {
+        drawTriggerInFlight = false;
+      }
+    }
+
+    function renderAll() {
+      const allIds = PARTICIPANTS.map(toDocId);
+      const readyList = allIds.filter(id => participantsMap[id]?.cambio_clave);
+      const pendingList = allIds.filter(id => !participantsMap[id]?.cambio_clave);
       const readyCount = readyList.length;
       const pendingCount = pendingList.length;
 
-      // 1. Actualizar píldora superior de estado global
-      updateTopStatusBanner(readyCount, pendingCount, totalCount);
+      document.getElementById("loginProgressBadge").textContent = `${readyCount} / 28 listos`;
+      document.getElementById("loginProgressBar").style.width = `${Math.round((readyCount / 28) * 100)}%`;
 
-      // 2. Verificar si debemos disparar el sorteo automático
-      if (pendingCount === 0 && !metaState.drawCompleted) {
-        checkAndTriggerAutomaticDraw();
+      if (drawState.completado) {
+        document.getElementById("loginStatusHeadline").textContent = "¡Sorteo realizado! Ingresa para ver quién te tocó.";
+      } else if (pendingCount === 1) {
+        document.getElementById("loginStatusHeadline").textContent = "Falta 1 persona para cambiar la clave";
+      } else {
+        document.getElementById("loginStatusHeadline").textContent = `Faltan ${pendingCount} personas para cambiar la clave`;
       }
 
-      // 3. Actualizar tarjeta de conteo en la pantalla de Login
-      renderPublicCountdownCard(pendingList, readyCount, totalCount);
+      if (currentUserId && participantsMap[currentUserId]) {
+        const me = participantsMap[currentUserId];
+        document.getElementById("dashUserName").textContent = me.nombre;
 
-      // 4. Si hay un participante logueado, actualizar su sesión y panel en vivo
-      if (loggedParticipantId) {
-        const currentP = participantsMap[loggedParticipantId];
-        if (currentP) {
-          // Si el administrador reinició su clave a '123' mientras estaba dentro
-          if (!currentP.ready || currentP.password === '123') {
-            document.getElementById('force-user-name').textContent = currentP.name;
-            if (document.getElementById('view-force-password').classList.contains('hidden')) {
-              switchView('view-force-password');
-              showToast("Tu clave fue reiniciada a 123. Crea una nueva clave.", "info");
-            }
-          } else {
-            renderParticipantDashboard(currentP, pendingList, readyCount, totalCount);
-          }
+        const h1 = document.getElementById("myHint1");
+        const h2 = document.getElementById("myHint2");
+        const h3 = document.getElementById("myHint3");
+        if (document.activeElement !== h1) h1.value = me.pista_1 || "";
+        if (document.activeElement !== h2) h2.value = me.pista_2 || "";
+        if (document.activeElement !== h3) h3.value = me.pista_3 || "";
+
+        const card = document.getElementById("drawResultCard");
+        const waitingBox = document.getElementById("drawWaitingState");
+        const completedBox = document.getElementById("drawCompletedState");
+
+        if (drawState.completado && drawState.asignaciones?.[currentUserId]) {
+          card.className = "rounded-3xl p-5 shadow-xl festive-gradient transition-all";
+          waitingBox.classList.add("hidden");
+          completedBox.classList.remove("hidden");
+
+          const targetId = drawState.asignaciones[currentUserId];
+          const target = participantsMap[targetId];
+          document.getElementById("assignedPersonName").textContent = target ? target.nombre : "Cargando...";
+
+          document.getElementById("targetHint1").textContent = target?.pista_1?.trim() ? target.pista_1 : "Aún no escribió esta pista...";
+          document.getElementById("targetHint2").textContent = target?.pista_2?.trim() ? target.pista_2 : "Aún no escribió esta pista...";
+          document.getElementById("targetHint3").textContent = target?.pista_3?.trim() ? target.pista_3 : "Aún no escribió esta pista...";
+        } else {
+          card.className = "glass-card rounded-3xl p-5 border-2 border-amber-200/80 transition-all";
+          waitingBox.classList.remove("hidden");
+          completedBox.classList.add("hidden");
+
+          document.getElementById("dashReadyCounter").textContent = `${readyCount} / 28 listos`;
+          document.getElementById("dashMissingHeadline").textContent =
+            pendingCount === 1
+              ? "Falta 1 persona para cambiar la clave"
+              : `Faltan ${pendingCount} personas para cambiar la clave`;
+
+          const chipsContainer = document.getElementById("missingNamesChips");
+          chipsContainer.innerHTML = "";
+          pendingList.forEach(id => {
+            const pName = participantsMap[id]?.nombre || id;
+            const span = document.createElement("span");
+            span.className = "px-2.5 py-1 rounded-lg bg-amber-50 border border-amber-200 text-amber-900 text-xs font-semibold";
+            span.textContent = pName;
+            chipsContainer.appendChild(span);
+          });
         }
       }
 
-      // 5. Si el administrador está logueado, actualizar su panel en vivo
       if (isAdminLoggedIn) {
-        renderAdminPanel(orderedParticipants, readyCount, pendingCount);
-      }
-
-      refreshIcons();
-    }
-
-    function updateTopStatusBanner(readyCount, pendingCount, totalCount) {
-      const dot = document.getElementById('status-dot');
-      const text = document.getElementById('global-status-text');
-      const badge = document.getElementById('global-progress-badge');
-
-      badge.textContent = `${readyCount}/${totalCount}`;
-
-      if (metaState.drawCompleted) {
-        dot.className = "w-2.5 h-2.5 rounded-full bg-emerald-400";
-        text.textContent = "¡Sorteo realizado! Resultados disponibles";
-      } else if (pendingCount === 0) {
-        dot.className = "w-2.5 h-2.5 rounded-full bg-amber-300 animate-ping";
-        text.textContent = "Ejecutando sorteo automático...";
-      } else {
-        dot.className = "w-2.5 h-2.5 rounded-full bg-amber-400 animate-pulse";
-        text.textContent = pendingCount === 1
-          ? "Falta 1 persona para cambiar la clave"
-          : `Faltan ${pendingCount} personas para cambiar la clave`;
+        document.getElementById("adminReadyCount").textContent = readyCount;
+        document.getElementById("adminPendingCount").textContent = pendingCount;
+        renderAdminList();
       }
     }
 
-    function renderPublicCountdownCard(pendingList, readyCount, totalCount) {
-      const container = document.getElementById('public-countdown-card');
-      const pendingCount = pendingList.length;
-      const pct = Math.round((readyCount / totalCount) * 100);
+    function renderAdminList() {
+      const query = document.getElementById("adminSearchInput").value.trim().toLowerCase();
+      const container = document.getElementById("adminParticipantsList");
+      container.innerHTML = "";
 
-      if (metaState.drawCompleted) {
-        container.innerHTML = `
-          <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-2xl bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0">
-              <i data-lucide="party-popper" class="w-5 h-5"></i>
-            </div>
-            <div>
-              <h3 class="font-display text-sm font-extrabold text-emerald-900">¡El sorteo ya se realizó!</h3>
-              <p class="text-xs text-emerald-700">Ingresa con tu nombre y clave personal para descubrir a quién te tocó regalarle.</p>
-            </div>
-          </div>
-        `;
-        return;
-      }
+      PARTICIPANTS.forEach(name => {
+        if (query && !name.toLowerCase().includes(query)) return;
+        const id = toDocId(name);
+        const p = participantsMap[id];
+        const isReady = Boolean(p?.cambio_clave);
 
-      const missingLabel = pendingCount === 1
-        ? "Falta 1 persona para cambiar la clave"
-        : `Faltan ${pendingCount} personas para cambiar la clave`;
+        const row = document.createElement("div");
+        row.className = "py-3 flex items-center justify-between gap-2";
 
-      const badgesHtml = pendingList.map(p => `
-        <span class="inline-flex items-center px-2.5 py-1 rounded-lg text-[11px] font-semibold bg-white border border-slate-200 text-slate-600 shadow-2xs">
-          ${escapeHtml(p.name)}
-        </span>
-      `).join('');
-
-      container.innerHTML = `
-        <div class="flex items-center justify-between">
-          <span class="text-xs font-extrabold text-slate-800">${missingLabel}</span>
-          <span class="text-xs font-bold text-red-600">${pct}%</span>
-        </div>
-        <div class="w-full h-2 bg-slate-200 rounded-full overflow-hidden">
-          <div class="h-full bg-gradient-to-r from-red-500 to-emerald-500 transition-all duration-500" style="width: ${pct}%"></div>
-        </div>
-        <div class="pt-1">
-          <p class="text-[11px] font-semibold text-slate-400 uppercase tracking-wider mb-2">Aún pendientes por cambiar clave:</p>
-          <div class="flex flex-wrap gap-1.5 max-h-36 overflow-y-auto pr-1">
-            ${badgesHtml}
-          </div>
-        </div>
-      `;
-    }
-
-    function renderParticipantDashboard(participant, pendingList, readyCount, totalCount) {
-      document.getElementById('dash-user-name').textContent = participant.name;
-
-      // Sincronizar inputs de pistas solo si el usuario no está escribiendo activamente en ellos
-      const hints = Array.isArray(participant.hints) ? participant.hints : ['', '', ''];
-      ['hint-1', 'hint-2', 'hint-3'].forEach((inputId, idx) => {
-        const inputEl = document.getElementById(inputId);
-        if (document.activeElement !== inputEl) {
-          inputEl.value = hints[idx] || '';
-        }
-      });
-
-      const drawSection = document.getElementById('dash-draw-section');
-      const pendingCount = pendingList.length;
-
-      // CASO A: El sorteo ya fue realizado y este usuario tiene asignación
-      if (metaState.drawCompleted && participant.assignedTo) {
-        const targetPerson = participantsMap[participant.assignedTo];
-        const targetName = targetPerson ? targetPerson.name : participant.assignedTo;
-        const targetHints = (targetPerson && Array.isArray(targetPerson.hints)) ? targetPerson.hints : ['', '', ''];
-        const hasAnyHint = targetHints.some(h => (h || '').trim().length > 0);
-
-        const hintsHtml = [0, 1, 2].map(idx => {
-          const hText = (targetHints[idx] || '').trim();
-          return `
-            <div class="bg-white rounded-2xl p-3.5 border border-amber-200/80 flex items-start gap-3 shadow-xs">
-              <span class="w-6 h-6 rounded-lg bg-red-600 text-white font-display font-extrabold text-xs flex items-center justify-center shrink-0 mt-0.5 shadow-2xs">${idx + 1}</span>
-              <div class="min-w-0 flex-1">
-                <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400 block">Pista #${idx + 1}</span>
-                <p class="text-xs sm:text-sm ${hText ? 'text-slate-900 font-semibold' : 'text-slate-400 italic'} leading-relaxed break-words">
-                  ${hText ? escapeHtml(hText) : 'Aún no ha escrito esta pista...'}
-                </p>
-              </div>
-            </div>
-          `;
-        }).join('');
-
-        drawSection.innerHTML = `
-          <div class="bg-gradient-to-br from-red-600 via-rose-600 to-amber-600 rounded-3xl p-5 text-white shadow-xl shadow-red-600/25 border-2 border-amber-300/60 space-y-4 relative overflow-hidden">
-            <div class="flex items-center justify-between gap-2">
-              <span class="inline-flex items-center gap-1.5 text-[11px] font-extrabold uppercase tracking-wider bg-black/25 px-3 py-1 rounded-full border border-white/15">
-                <i data-lucide="sparkles" class="w-3.5 h-3.5 text-amber-300"></i>
-                Sorteo Completado
-              </span>
-              <span class="inline-flex items-center gap-1 text-[10px] font-bold bg-emerald-500/30 border border-emerald-200/40 text-emerald-100 px-2.5 py-1 rounded-full">
-                <span class="w-1.5 h-1.5 rounded-full bg-emerald-300 animate-pulse"></span>
-                En vivo
-              </span>
-            </div>
-
-            <div class="bg-white/15 backdrop-blur-xs border border-white/30 rounded-2xl py-4 px-4 text-center space-y-1 shadow-inner">
-              <p class="text-xs font-bold uppercase tracking-widest text-amber-100">Tu Amigo Secreto es:</p>
-              <p class="font-display text-2xl sm:text-3xl font-extrabold tracking-tight text-white drop-shadow-xs">
-                ${escapeHtml(targetName)}
-              </p>
-            </div>
-
-            <div class="space-y-2.5 pt-1">
-              <div class="flex items-center justify-between text-xs">
-                <span class="font-bold text-amber-100 flex items-center gap-1.5">
-                  <i data-lucide="gift" class="w-4 h-4 text-amber-200"></i>
-                  Las 3 pistas que escribió ${escapeHtml(targetName)}:
-                </span>
-              </div>
-              <div class="space-y-2">
-                ${hintsHtml}
-              </div>
-              <p class="text-[11px] text-amber-100/90 text-center pt-1">
-                ${hasAnyHint
-                  ? `Si ${escapeHtml(targetName)} edita sus pistas en su cuenta, se actualizarán aquí al instante.`
-                  : `${escapeHtml(targetName)} aún no llena sus pistas; aparecerán aquí automáticamente apenas las guarde.`}
-              </p>
-            </div>
-          </div>
-        `;
-      } else {
-        // CASO B: Esperando a que todos cambien la clave '123'
-        const missingLabel = pendingCount === 1
-          ? "Falta 1 persona para cambiar la clave"
-          : `Faltan ${pendingCount} personas para cambiar la clave`;
-
-        const badgesHtml = pendingList.map(p => `
-          <span class="inline-flex items-center px-2.5 py-1 rounded-lg text-[11px] font-semibold bg-amber-50 border border-amber-200/80 text-amber-900">
-            ${escapeHtml(p.name)}
+        const left = document.createElement("div");
+        left.innerHTML = `
+          <p class="text-sm font-bold text-slate-800">${name}</p>
+          <span class="inline-flex items-center text-[11px] font-bold px-2 py-0.5 rounded-md mt-0.5 ${
+            isReady ? "bg-emerald-100 text-emerald-700" : "bg-amber-100 text-amber-800"
+          }">
+            ${isReady ? "Listo" : "Pendiente (123)"}
           </span>
-        `).join('');
-
-        drawSection.innerHTML = `
-          <div class="bg-gradient-to-br from-amber-50 to-orange-50/70 rounded-3xl p-5 border border-amber-200 space-y-3.5">
-            <div class="flex items-start gap-3">
-              <div class="w-10 h-10 rounded-2xl bg-amber-500 text-white flex items-center justify-center shrink-0 shadow-sm">
-                <i data-lucide="hourglass" class="w-5 h-5"></i>
-              </div>
-              <div>
-                <span class="text-[11px] font-bold uppercase tracking-wider text-amber-700 block">Sorteo en espera</span>
-                <h3 class="font-display text-base font-extrabold text-slate-900 leading-snug">${missingLabel}</h3>
-              </div>
-            </div>
-
-            <p class="text-xs text-slate-600 leading-relaxed">
-              En el instante en que los <strong>${totalCount} participantes</strong> cambien su clave inicial <code class="bg-white px-1.5 py-0.5 rounded border border-amber-200 font-bold">123</code>, el sorteo se hará automáticamente y <strong>aparecerá aquí mismo la persona que te tocó junto con sus 3 pistas de regalo</strong>.
-            </p>
-
-            ${pendingCount > 0 ? `
-              <div class="pt-1">
-                <span class="text-[11px] font-bold uppercase tracking-wider text-slate-500 block mb-2">Personas que aún faltan (${pendingCount}):</span>
-                <div class="flex flex-wrap gap-1.5 max-h-36 overflow-y-auto">
-                  ${badgesHtml}
-                </div>
-              </div>
-            ` : ''}
-          </div>
         `;
-      }
+
+        const right = document.createElement("div");
+        if (isReady) {
+          const btnReset = document.createElement("button");
+          btnReset.type = "button";
+          btnReset.className = "px-2.5 py-1.5 rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-700 border border-rose-200 text-xs font-bold transition active:scale-95";
+          btnReset.textContent = "Reiniciar clave a 123";
+          btnReset.onclick = async () => {
+            const ok = confirm(`¿Seguro que deseas reiniciar la clave de ${name} a "123"? Volverá a estado Pendiente.`);
+            if (!ok) return;
+            const { error } = await supabase
+              .from("participantes")
+              .update({ clave: "123", cambio_clave: false, actualizado_en: new Date().toISOString() })
+              .eq("id", id);
+            if (error) showToast("Error al reiniciar clave", "error");
+            else showToast(`Clave de ${name} reiniciada a 123`, "success");
+          };
+          right.appendChild(btnReset);
+        } else {
+          right.innerHTML = `<span class="text-[11px] font-medium text-slate-400">Clave inicial</span>`;
+        }
+
+        row.appendChild(left);
+        row.appendChild(right);
+        container.appendChild(row);
+      });
     }
 
-    function renderAdminPanel(orderedParticipants, readyCount, pendingCount) {
-      document.getElementById('admin-count-ready').textContent = readyCount;
-      document.getElementById('admin-count-pending').textContent = pendingCount;
+    // Suscripción Realtime a cambios en participantes y sorteo
+    supabase
+      .channel("amigo-secreto-live")
+      .on("postgres_changes", { event: "*", schema: "public", table: "participantes" }, (payload) => {
+        const row = payload.new;
+        if (row?.id) {
+          participantsMap[row.id] = row;
+          if (currentUserId && row.id === currentUserId && !row.cambio_clave) {
+            pendingPasswordUserId = currentUserId;
+            currentUserId = null;
+            document.getElementById("cpUserName").textContent = row.nombre;
+            showView("viewChangePassword");
+            showToast("Tu clave fue reiniciada a 123. Crea una nueva clave.", "info");
+          }
+          renderAll();
+          checkAndTriggerAutoDraw();
+        }
+      })
+      .on("postgres_changes", { event: "*", schema: "public", table: "sorteo" }, (payload) => {
+        const row = payload.new;
+        if (row?.id === "general") {
+          drawState = {
+            completado: Boolean(row.completado),
+            asignaciones: row.asignaciones || {}
+          };
+          renderAll();
+        }
+      })
+      .subscribe();
 
-      const searchTerm = (document.getElementById('admin-search-input').value || '').trim().toLowerCase();
-      const filtered = orderedParticipants.filter(p => p.name.toLowerCase().includes(searchTerm));
+    loadInitialState();
 
-      const listContainer = document.getElementById('admin-participants-list');
-      if (filtered.length === 0) {
-        listContainer.innerHTML = `
-          <div class="text-center py-8 text-xs text-slate-400">
-            No se encontraron participantes con "${escapeHtml(searchTerm)}".
-          </div>
-        `;
+    // EVENTOS
+    document.getElementById("loginForm").addEventListener("submit", (e) => {
+      e.preventDefault();
+      const selectedId = selectParticipant.value;
+      const enteredPw = document.getElementById("inputPassword").value.trim();
+
+      if (!selectedId || !participantsMap[selectedId]) {
+        showToast("Selecciona tu nombre de la lista", "error");
         return;
       }
 
-      listContainer.innerHTML = filtered.map(p => {
-        const isReady = p.ready && p.password !== '123';
-        return `
-          <div class="bg-white border border-slate-200 rounded-2xl p-3.5 flex items-center justify-between gap-3 shadow-2xs">
-            <div class="min-w-0">
-              <p class="font-display font-bold text-sm text-slate-800 truncate">${escapeHtml(p.name)}</p>
-              ${isReady
-                ? `<span class="inline-flex items-center gap-1 text-[11px] font-bold text-emerald-700 mt-0.5">
-                     <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
-                     Listo
-                   </span>`
-                : `<span class="inline-flex items-center gap-1 text-[11px] font-bold text-amber-700 mt-0.5">
-                     <span class="w-2 h-2 rounded-full bg-amber-500"></span>
-                     Pendiente (123)
-                   </span>`
-              }
-            </div>
-
-            ${isReady
-              ? `<button type="button" data-reset-id="${escapeHtml(p.id)}" data-reset-name="${escapeHtml(p.name)}" class="btn-admin-reset shrink-0 px-3 py-2 rounded-xl bg-red-50 hover:bg-red-100 active:scale-95 text-red-700 border border-red-200 text-xs font-bold transition flex items-center gap-1.5">
-                   <i data-lucide="rotate-ccw" class="w-3.5 h-3.5"></i>
-                   <span>Reiniciar clave a 123</span>
-                 </button>`
-              : `<span class="shrink-0 px-3 py-2 rounded-xl bg-slate-100 text-slate-400 text-[11px] font-semibold">
-                   Clave inicial activa
-                 </span>`
-            }
-          </div>
-        `;
-      }).join('');
-
-      // Vincular botones individuales de reinicio
-      document.querySelectorAll('.btn-admin-reset').forEach(btn => {
-        btn.addEventListener('click', () => {
-          const targetId = btn.getAttribute('data-reset-id');
-          const targetName = btn.getAttribute('data-reset-name');
-
-          const extraWarning = metaState.drawCompleted
-            ? " Nota: Como el sorteo ya fue realizado, se conservarán las parejas asignadas para mantener la coherencia, y esta persona deberá crear una nueva clave personal al entrar con 123."
-            : " Esta persona volverá a aparecer como Pendiente hasta que cree una nueva clave personal.";
-
-          openConfirmModal({
-            title: `¿Reiniciar clave de ${targetName}?`,
-            message: `Su contraseña volverá a ser 123 para que pueda ingresar nuevamente.${extraWarning}`,
-            confirmText: 'Sí, reiniciar a 123',
-            onConfirm: async () => {
-              await adminResetParticipantPassword(targetId, targetName);
-            }
-          });
-        });
-      });
-    }
-
-    // =========================================================================
-    // 8. ACCIONES DE USUARIO Y ADMINISTRADOR EN FIRESTORE
-    // =========================================================================
-    async function adminResetParticipantPassword(participantId, participantName) {
-      if (!currentUser) return;
-      try {
-        const pRef = getParticipantDocRef(participantId);
-        await updateDoc(pRef, {
-          password: '123',
-          ready: false
-        });
-        showToast(`Clave de ${participantName} reiniciada a 123.`, "success");
-      } catch (err) {
-        console.error("Error reiniciando clave:", err);
-        showToast("No se pudo reiniciar la clave. Intenta de nuevo.", "error");
+      const user = participantsMap[selectedId];
+      if (enteredPw !== user.clave) {
+        showToast("Clave incorrecta. Intenta de nuevo.", "error");
+        return;
       }
-    }
 
-    // =========================================================================
-    // 9. EVENT LISTENERS DE FORMULARIOS Y NAVEGACIÓN
-    // =========================================================================
-    document.addEventListener('DOMContentLoaded', () => {
-      refreshIcons();
+      document.getElementById("inputPassword").value = "";
 
-      // Mostrar/ocultar contraseña en login
-      document.getElementById('toggle-login-pwd').addEventListener('click', () => {
-        const input = document.getElementById('input-login-password');
-        const isPwd = input.type === 'password';
-        input.type = isPwd ? 'text' : 'password';
-      });
+      if (enteredPw === "123" || !user.cambio_clave) {
+        pendingPasswordUserId = selectedId;
+        document.getElementById("cpUserName").textContent = user.nombre;
+        showView("viewChangePassword");
+        return;
+      }
 
-      // Login de participante
-      document.getElementById('form-login').addEventListener('submit', (e) => {
-        e.preventDefault();
-        const selectedId = document.getElementById('select-participant').value;
-        const enteredPwd = document.getElementById('input-login-password').value.trim();
-
-        if (!selectedId) {
-          showToast("Por favor selecciona tu nombre de la lista.", "error");
-          return;
-        }
-
-        const participant = participantsMap[selectedId];
-        if (!participant) {
-          showToast("Cargando datos del participante, intenta en un segundo.", "info");
-          return;
-        }
-
-        if (enteredPwd !== participant.password) {
-          showToast("Clave incorrecta. Si es tu primera vez usa 123.", "error");
-          return;
-        }
-
-        loggedParticipantId = selectedId;
-        document.getElementById('input-login-password').value = '';
-
-        // Si su clave sigue siendo '123' o no está listo, obligar cambio de clave
-        if (participant.password === '123' || !participant.ready) {
-          document.getElementById('force-user-name').textContent = participant.name;
-          document.getElementById('input-new-password').value = '';
-          document.getElementById('input-confirm-password').value = '';
-          switchView('view-force-password');
-        } else {
-          switchView('view-dashboard');
-          onRealtimeStateChanged();
-          showToast(`¡Bienvenido/a, ${participant.name}!`, "success");
-        }
-      });
-
-      // Cambio obligatorio de clave inicial '123'
-      document.getElementById('form-force-password').addEventListener('submit', async (e) => {
-        e.preventDefault();
-        if (!loggedParticipantId || !currentUser) return;
-
-        const newPwd = document.getElementById('input-new-password').value.trim();
-        const confirmPwd = document.getElementById('input-confirm-password').value.trim();
-
-        if (newPwd.length < 3) {
-          showToast("La clave debe tener al menos 3 caracteres.", "error");
-          return;
-        }
-        if (newPwd === '123') {
-          showToast("Tu nueva clave debe ser distinta de 123.", "error");
-          return;
-        }
-        if (newPwd !== confirmPwd) {
-          showToast("Las claves no coinciden. Verifícalas.", "error");
-          return;
-        }
-
-        const btn = document.getElementById('btn-save-force-password');
-        btn.disabled = true;
-
-        try {
-          const pRef = getParticipantDocRef(loggedParticipantId);
-          await updateDoc(pRef, {
-            password: newPwd,
-            ready: true
-          });
-
-          switchView('view-dashboard');
-          showToast("¡Clave guardada! Ya estás marcado como Listo.", "success");
-        } catch (err) {
-          console.error("Error guardando clave:", err);
-          showToast("Error al guardar la clave. Intenta de nuevo.", "error");
-        } finally {
-          btn.disabled = false;
-        }
-      });
-
-      // Guardar 3 pistas de regalo
-      document.getElementById('form-hints').addEventListener('submit', async (e) => {
-        e.preventDefault();
-        if (!loggedParticipantId || !currentUser) return;
-
-        const h1 = document.getElementById('hint-1').value.trim();
-        const h2 = document.getElementById('hint-2').value.trim();
-        const h3 = document.getElementById('hint-3').value.trim();
-
-        const btn = document.getElementById('btn-save-hints');
-        btn.disabled = true;
-
-        try {
-          const pRef = getParticipantDocRef(loggedParticipantId);
-          await updateDoc(pRef, {
-            hints: [h1, h2, h3]
-          });
-          showToast("¡Tus 3 pistas se guardaron en tiempo real!", "success");
-        } catch (err) {
-          console.error("Error guardando pistas:", err);
-          showToast("No se pudieron guardar las pistas.", "error");
-        } finally {
-          btn.disabled = false;
-        }
-      });
-
-      // Desplegar formulario opcional de cambio de clave en dashboard
-      document.getElementById('btn-toggle-change-pwd').addEventListener('click', () => {
-        const form = document.getElementById('form-update-password');
-        const chevron = document.getElementById('icon-change-pwd-chevron');
-        form.classList.toggle('hidden');
-        chevron.classList.toggle('rotate-180');
-      });
-
-      // Actualizar clave personal nuevamente (opcional)
-      document.getElementById('form-update-password').addEventListener('submit', async (e) => {
-        e.preventDefault();
-        if (!loggedParticipantId || !currentUser) return;
-
-        const p1 = document.getElementById('input-update-pwd-1').value.trim();
-        const p2 = document.getElementById('input-update-pwd-2').value.trim();
-
-        if (p1.length < 3) {
-          showToast("La clave debe tener al menos 3 caracteres.", "error");
-          return;
-        }
-        if (p1 === '123') {
-          showToast("La clave personal debe ser distinta de 123.", "error");
-          return;
-        }
-        if (p1 !== p2) {
-          showToast("Las claves no coinciden.", "error");
-          return;
-        }
-
-        try {
-          const pRef = getParticipantDocRef(loggedParticipantId);
-          await updateDoc(pRef, {
-            password: p1,
-            ready: true
-          });
-          document.getElementById('input-update-pwd-1').value = '';
-          document.getElementById('input-update-pwd-2').value = '';
-          document.getElementById('form-update-password').classList.add('hidden');
-          showToast("Clave personal actualizada correctamente.", "success");
-        } catch (err) {
-          console.error("Error actualizando clave:", err);
-          showToast("Error al actualizar la clave.", "error");
-        }
-      });
-
-      // Navegación Administrador
-      document.getElementById('btn-open-admin').addEventListener('click', () => {
-        document.getElementById('admin-username').value = '';
-        document.getElementById('admin-password').value = '';
-        switchView('view-admin-login');
-      });
-
-      document.getElementById('btn-back-from-admin-login').addEventListener('click', () => {
-        switchView('view-login');
-      });
-
-      document.getElementById('form-admin-login').addEventListener('submit', (e) => {
-        e.preventDefault();
-        const user = document.getElementById('admin-username').value.trim();
-        const pass = document.getElementById('admin-password').value.trim();
-
-        if (user === ADMIN_USER && pass === ADMIN_PASS) {
-          isAdminLoggedIn = true;
-          document.getElementById('admin-search-input').value = '';
-          switchView('view-admin-panel');
-          onRealtimeStateChanged();
-          showToast("Acceso concedido al Panel de Administrador.", "success");
-        } else {
-          showToast("Credenciales de administrador incorrectas.", "error");
-        }
-      });
-
-      document.getElementById('btn-admin-logout').addEventListener('click', () => {
-        isAdminLoggedIn = false;
-        switchView('view-login');
-        showToast("Sesión de administrador cerrada.");
-      });
-
-      // Buscador en vivo en el panel de administrador
-      document.getElementById('admin-search-input').addEventListener('input', () => {
-        if (isAdminLoggedIn) {
-          onRealtimeStateChanged();
-        }
-      });
-
-      // Eventos del modal de confirmación
-      document.getElementById('modal-btn-cancel').addEventListener('click', closeConfirmModal);
-      document.getElementById('modal-btn-confirm').addEventListener('click', async () => {
-        const cb = modalConfirmCallback;
-        closeConfirmModal();
-        if (typeof cb === 'function') {
-          await cb();
-        }
-      });
-
-      // Iniciar conexión Firebase
-      initFirebase();
+      currentUserId = selectedId;
+      showView("viewDashboard");
+      renderAll();
+      showToast(`¡Bienvenido/a, ${user.nombre}!`, "success");
     });
+
+    document.getElementById("changePasswordForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const newPw = document.getElementById("newPassword").value.trim();
+      const confirmPw = document.getElementById("confirmPassword").value.trim();
+
+      if (!newPw || newPw === "123") {
+        showToast("Tu nueva clave debe ser diferente de 123", "error");
+        return;
+      }
+      if (newPw !== confirmPw) {
+        showToast("Las claves no coinciden", "error");
+        return;
+      }
+
+      const { data, error } = await supabase
+        .from("participantes")
+        .update({ clave: newPw, cambio_clave: true, actualizado_en: new Date().toISOString() })
+        .eq("id", pendingPasswordUserId)
+        .select()
+        .single();
+
+      if (error) {
+        showToast("No se pudo guardar la clave", "error");
+        return;
+      }
+
+      participantsMap[pendingPasswordUserId] = data;
+      currentUserId = pendingPasswordUserId;
+      pendingPasswordUserId = null;
+      document.getElementById("newPassword").value = "";
+      document.getElementById("confirmPassword").value = "";
+
+      showView("viewDashboard");
+      renderAll();
+      showToast("¡Clave guardada! Ya estás Listo para el sorteo", "success");
+      await checkAndTriggerAutoDraw();
+    });
+
+    document.getElementById("btnCancelChangePw").addEventListener("click", () => {
+      pendingPasswordUserId = null;
+      showView("viewLogin");
+    });
+
+    document.getElementById("hintsForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      if (!currentUserId) return;
+      const p1 = document.getElementById("myHint1").value.trim();
+      const p2 = document.getElementById("myHint2").value.trim();
+      const p3 = document.getElementById("myHint3").value.trim();
+
+      const { data, error } = await supabase
+        .from("participantes")
+        .update({ pista_1: p1, pista_2: p2, pista_3: p3, actualizado_en: new Date().toISOString() })
+        .eq("id", currentUserId)
+        .select()
+        .single();
+
+      if (error) {
+        showToast("Error al guardar tus pistas", "error");
+      } else {
+        participantsMap[currentUserId] = data;
+        showToast("¡Tus 3 pistas se guardaron en vivo!", "success");
+      }
+    });
+
+    document.getElementById("btnOpenUpdatePw").addEventListener("click", () => {
+      document.getElementById("modalUpdatePassword").classList.remove("hidden");
+    });
+    document.getElementById("btnCloseOptPw").addEventListener("click", () => {
+      document.getElementById("modalUpdatePassword").classList.add("hidden");
+    });
+    document.getElementById("optionalUpdatePwForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const newPw = document.getElementById("optNewPw").value.trim();
+      const confPw = document.getElementById("optConfirmPw").value.trim();
+      if (!newPw || newPw === "123") {
+        showToast("La clave debe ser distinta de 123", "error");
+        return;
+      }
+      if (newPw !== confPw) {
+        showToast("Las claves no coinciden", "error");
+        return;
+      }
+      const { data, error } = await supabase
+        .from("participantes")
+        .update({ clave: newPw, cambio_clave: true, actualizado_en: new Date().toISOString() })
+        .eq("id", currentUserId)
+        .select()
+        .single();
+
+      if (error) {
+        showToast("Error al actualizar clave", "error");
+      } else {
+        participantsMap[currentUserId] = data;
+        document.getElementById("optNewPw").value = "";
+        document.getElementById("optConfirmPw").value = "";
+        document.getElementById("modalUpdatePassword").classList.add("hidden");
+        showToast("Clave actualizada correctamente", "success");
+      }
+    });
+
+    document.getElementById("btnLogoutUser").addEventListener("click", () => {
+      currentUserId = null;
+      showView("viewLogin");
+    });
+
+    document.getElementById("btnOpenAdmin").addEventListener("click", () => {
+      if (isAdminLoggedIn) {
+        showView("viewAdminPanel");
+        renderAll();
+      } else {
+        showView("viewAdminLogin");
+      }
+    });
+
+    document.getElementById("btnBackFromAdminLogin").addEventListener("click", () => {
+      if (currentUserId) showView("viewDashboard");
+      else showView("viewLogin");
+    });
+
+    document.getElementById("adminLoginForm").addEventListener("submit", (e) => {
+      e.preventDefault();
+      const u = document.getElementById("adminUser").value.trim();
+      const p = document.getElementById("adminPass").value.trim();
+      if (u === ADMIN_USER && p === ADMIN_PASS) {
+        isAdminLoggedIn = true;
+        document.getElementById("adminUser").value = "";
+        document.getElementById("adminPass").value = "";
+        showView("viewAdminPanel");
+        renderAll();
+        showToast("Bienvenido, Administrador", "success");
+      } else {
+        showToast("Credenciales de administrador incorrectas", "error");
+      }
+    });
+
+    document.getElementById("btnLogoutAdmin").addEventListener("click", () => {
+      isAdminLoggedIn = false;
+      if (currentUserId) showView("viewDashboard");
+      else showView("viewLogin");
+    });
+
+    document.getElementById("adminSearchInput").addEventListener("input", renderAdminList);
   </script>
 </body>
 </html>
