@@ -357,13 +357,28 @@
           </div>
         </div>
 
+        <!-- Control de sorteo (Resetear para empezar de nuevo y volver a realizar) -->
+        <div class="glass-card rounded-3xl p-4 flex items-center justify-between gap-3 border border-rose-100">
+          <div>
+            <p class="text-xs font-extrabold text-slate-900">Estado del sorteo</p>
+            <p id="adminDrawStatusText" class="text-[11px] text-slate-500 mt-0.5">Verificando...</p>
+          </div>
+          <button id="btnResetDraw" type="button"
+            class="px-3.5 py-2.5 rounded-xl festive-gradient hover:opacity-95 active:scale-95 text-white text-xs font-bold shadow-sm transition shrink-0 flex items-center gap-1.5">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.3" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99" />
+            </svg>
+            Resetear sorteo
+          </button>
+        </div>
+
         <div class="glass-card rounded-3xl p-4">
           <div class="mb-3">
             <input id="adminSearchInput" type="text" placeholder="Buscar participante por nombre..."
               class="w-full rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 text-sm font-medium focus:border-slate-900 focus:outline-none" />
           </div>
 
-          <div id="adminParticipantsList" class="divide-y divide-slate-100 max-h-[420px] overflow-y-auto pr-1"></div>
+          <div id="adminParticipantsList" class="divide-y divide-slate-100 max-h-[380px] overflow-y-auto pr-1"></div>
         </div>
       </section>
 
@@ -645,6 +660,9 @@
       if (isAdminLoggedIn) {
         document.getElementById("adminReadyCount").textContent = readyCount;
         document.getElementById("adminPendingCount").textContent = pendingCount;
+        document.getElementById("adminDrawStatusText").textContent = drawState.completado
+          ? "Completado · Puedes resetearlo para re-sortear"
+          : `En espera · Faltan ${pendingCount} por cambiar clave`;
         renderAdminList();
       }
     }
@@ -907,6 +925,49 @@
     });
 
     document.getElementById("adminSearchInput").addEventListener("input", renderAdminList);
+
+    // Botón Resetear sorteo (Admin)
+    document.getElementById("btnResetDraw").addEventListener("click", async () => {
+      const ok = confirm("¿Seguro que deseas resetear el sorteo? Si los 28 participantes ya están listos, se volverá a sortear automáticamente de inmediato.");
+      if (!ok) return;
+
+      const btn = document.getElementById("btnResetDraw");
+      btn.disabled = true;
+
+      try {
+        const { error } = await supabase
+          .from("sorteo")
+          .update({
+            completado: false,
+            asignaciones: {},
+            completado_en: null
+          })
+          .eq("id", "general");
+
+        if (error) {
+          showToast("Error al resetear el sorteo", "error");
+          return;
+        }
+
+        drawState = { completado: false, asignaciones: {} };
+        renderAll();
+
+        const allIds = PARTICIPANTS.map(toDocId);
+        const allReady = allIds.every(id => participantsMap[id]?.cambio_clave === true && participantsMap[id]?.clave !== "123");
+
+        if (allReady) {
+          await checkAndTriggerAutoDraw();
+          showToast("¡Sorteo reseteado y realizado de nuevo!", "success");
+        } else {
+          showToast("Sorteo reseteado. Esperando a los participantes pendientes.", "success");
+        }
+      } catch (err) {
+        console.error("Error reseteando sorteo:", err);
+        showToast("Error inesperado al resetear", "error");
+      } finally {
+        btn.disabled = false;
+      }
+    });
   </script>
 </body>
 </html>
